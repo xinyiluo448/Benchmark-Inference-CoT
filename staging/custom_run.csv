@@ -1,0 +1,3 @@
+name,latency_s,tokens_generated,tokens_per_s,peak_mem_gb,reference,correct
+sst2-pos,2.772,45,16.23,13.507,positive,0
+sst2-neg,0.786,7,8.91,13.503,negative,0

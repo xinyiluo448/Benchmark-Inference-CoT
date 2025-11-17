@@ -2,6 +2,7 @@ import contextlib
 import csv
 import time
 from dataclasses import dataclass
+import re
 from pathlib import Path
 from typing import Iterable, List
 
@@ -33,9 +34,35 @@ def timed() -> Iterable[float]:
     yield lambda: time.perf_counter() - start
 
 
-def count_new_tokens(output_ids: torch.Tensor, input_length: int) -> int:
+def count_new_tokens(output_ids: torch.Tensor, input_length: int, full_text: bool) -> int:
+    """
+    Count generated tokens.
+    If pipeline returns only the generated continuation (return_full_text=False), just use its length.
+    If full text is returned, subtract the input length to get new tokens.
+    """
     total = int(output_ids.numel())
+    if not full_text:
+        return total
     return max(total - input_length, 0)
+
+
+def extract_last_number(text: str) -> str:
+    """
+    Extract the last integer/float-like number string from text.
+    Supports comma-separated thousands (e.g., 1,200.5).
+    """
+    matches = re.findall(r"[-+]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?", text)
+    if not matches:
+        return ""
+    raw = matches[-1]
+    return raw.replace(",", "")
+
+
+def numeric_equal(a: str, b: str, tol: float = 1e-6) -> bool:
+    try:
+        return abs(float(a) - float(b)) <= tol
+    except Exception:
+        return False
 
 
 def run_example(
@@ -51,18 +78,19 @@ def run_example(
         if torch.cuda.is_available():
             torch.cuda.synchronize()
         with timed() as elapsed:
-            output = pipe(
+            generation = pipe(
                 example.prompt,
                 max_new_tokens=max_new_tokens,
                 do_sample=False,
                 pad_token_id=tokenizer.eos_token_id,
                 return_full_text=False,
-            )[0]["generated_text"]
+            )[0]
+            output = generation["generated_text"]
         if torch.cuda.is_available():
             torch.cuda.synchronize()
 
     output_ids = tokenizer(output, return_tensors="pt").input_ids
-    tokens_generated = count_new_tokens(output_ids, input_ids.shape[-1])
+    tokens_generated = count_new_tokens(output_ids, input_ids.shape[-1], full_text=False)
     latency_s = elapsed()
     tokens_per_s = tokens_generated / latency_s if latency_s > 0 else 0.0
 
@@ -88,4 +116,3 @@ def save_results_csv(path: Path, rows: List[dict]) -> None:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
-
