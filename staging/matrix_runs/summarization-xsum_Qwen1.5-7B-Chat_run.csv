@@ -1,0 +1,222 @@
+name,latency_s,tokens_generated,tokens_per_s,peak_mem_gb,reference,prompt,output
+validation-0,2.941,50,17.00,28.289,"An army group in Turkey says it has taken over the country, with gunfire heard and military jets flying low over the capital, Ankara.","Summarize in one sentence:
+International figures having been responding to the unfolding situation in the country.
+The White House said US President Barack Obama had spoken to US Secretary of State John Kerry and agreed that all parties in Turkey should support the ""democratically elected"" government.
+The pair urged all sides to ""show restraint and avoid any violence or bloodshed"" in Turkey - a key ally and a strategically important member of the coalition fighting so-called Islamic State.
+Mr Kerry - who is on a visit to Russia - said he had spoken to the Turkish foreign minister, saying he had emphasised ""absolute support for Turkey's democratically elected, civilian government and democratic institutions"".
+""The United States views with gravest concern events unfolding in Turkey,"" Mr Kerry said.
+Russian Foreign Minister Sergey Lavrov highlighted the need to avoid all ""bloodshed"", saying that ""problems in Turkey need to be resolved in accordance with the constitution"".
+Kremlin spokesman Dmitry Peskov said Moscow was ""deeply concerned"" at reports from Turkey, saying Russia's priority was to secure the safety of Russian institutions and citizens in Turkey.
+""Moscow hopes that however events in Turkey develop, whoever initiated what's happened, the security of Russian citizens will be protected"", he said
+""Turkey is a very important regional power. Of course stability in Turkey and situation there has an impact on the situation in the region .
+""So we all want whatever it is that is happening in Turkey to finish as quickly as possible, in a legitimate manner and for the country to return to the path of stability, predictability and order""
+United Nations' Secretary-General Ban Ki-moon has appealed for calm, a UN spokesman said.
+""The Secretary-General is closely following developments in Turkey. He is aware of the reports of a coup attempt in the country.
+""The United Nations is seeking to clarify the situation on the ground and appeals for calm,"" spokesman Farhan Haq said.
+Nato Secretary-General Jens Stoltenberg said Turkey was ""a valued Nato ally"", calling for ""calm and restraint, and full respect for Turkey's democratic institutions"".
+Iran said it was deeply concerned about the situation.
+""Stability, democracy and safety of Turkish people are paramount. Unity and prudence are imperative,"" Foreign Minister Mohammad Javad Zarif said on his Twitter account.
+The Gulf state of Qatar - an ally of Turkey - denounced and condemned the apparent attempted coup, a Qatar state news agency reported.
+Bulgaria has bolstered its patrols along the Bulgarian-Turkish border and appealed to Bulgarians not to travel to the country's southern neighbour, the government said in a statement.
+It said Prime Minister Boiko Borisov had held talks with the security and intelligence services about the situation.
+A spokesman for German Chancellor Angela Merkel said ""the democratic order must be respected"" in Turkey.
+Steffen Seibert tweeted: ""Everything must be done to protect human lives.""
+The UK's new Foreign Secretary Boris Johnson said he was ""very concerned"" about events, while the UK embassy advised British nationals in the country to avoid all public places and ""remain vigilant"".
+European Union foreign policy chief Federica Mogherini urged ""restraint"" in Turkey after an attempted coup against President Recep Tayyip Erdogan.
+""In constant contact with EU Delegation in Ankara & Brussels from Mongolia. Call for restraint and respect for democratic institutions #Turkey,"" she tweeted from a regional summit in Ulan Bator.","International leaders, including US President Barack Obama and Russian Foreign Minister Sergey Lavrov, have called for calm and support for the democratically elected government in Turkey following an attempted coup, as the UN and NATO also express concern and urge respect for democratic institutions."
+validation-1,1.688,30,17.77,28.397,Monaco missed the chance to go six points clear at the top of Ligue 1 after being held by Bastia.,"Summarize in one sentence:
+The Corsican side took the lead when Guinean Sadio Diallo beat goalkeeper Danijel Subasic from close range.
+But Portugal midfielder Bernardo Silva pulled the league leaders level early in the second half when he headed in an Almamy Toure cross.
+Champions Paris St-Germain would move to within a point of the summit should they beat Toulouse on Sunday.
+Monaco travel to face Manchester City in their Champions League last-16 first-leg game on Tuesday.
+Match ends, Bastia 1, Monaco 1.
+Second Half ends, Bastia 1, Monaco 1.
+Delay over. They are ready to continue.
+Delay in match Jean-Louis Leca (Bastia) because of an injury.
+Foul by Benjamin Mendy (Monaco).
+Jean-Louis Leca (Bastia) wins a free kick in the defensive half.
+Fabinho (Monaco) wins a free kick in the defensive half.
+Foul by Lenny Nangis (Bastia).
+Attempt missed. Thomas Lemar (Monaco) left footed shot from very close range is high and wide to the right. Assisted by Bernardo Silva with a cross.
+Lenny Nangis (Bastia) is shown the yellow card.
+Attempt missed. Florian Marange (Bastia) header from the centre of the box is too high. Assisted by Axel Ngando with a cross following a corner.
+Corner,  Bastia. Conceded by Benjamin Mendy.
+Attempt missed. Jemerson (Monaco) header from the centre of the box misses to the right. Assisted by Thomas Lemar with a cross following a corner.
+Corner,  Monaco. Conceded by Jean-Louis Leca.
+Attempt saved. Kylian Mbappe (Monaco) right footed shot from the right side of the box is saved in the bottom left corner. Assisted by Bernardo Silva.
+Foul by Bernardo Silva (Monaco).
+Lassana Coulibaly (Bastia) wins a free kick in the defensive half.
+Attempt missed. Kylian Mbappe (Monaco) left footed shot from the centre of the box is high and wide to the left. Assisted by Benjamin Mendy.
+Bernardo Silva (Monaco) wins a free kick in the defensive half.
+Foul by Lenny Nangis (Bastia).
+Substitution, Bastia. Lenny Nangis replaces Gaël Danic.
+Attempt missed. Falcao (Monaco) right footed shot from the centre of the box is too high. Assisted by Nabil Dirar with a cross.
+Substitution, Monaco. Nabil Dirar replaces Almamy Touré.
+Attempt missed. Jemerson (Monaco) header from the centre of the box is high and wide to the left. Assisted by Thomas Lemar with a cross following a corner.
+Corner,  Monaco. Conceded by Florian Marange.
+Corner,  Monaco. Conceded by Alexander Djiku.
+Attempt missed. João Moutinho (Monaco) right footed shot from outside the box is too high following a corner.
+Corner,  Monaco. Conceded by Abdelhamid El Kaoutari.
+Foul by Thomas Lemar (Monaco).
+Prince Oniangué (Bastia) wins a free kick in the defensive half.
+Almamy Touré (Monaco) wins a free kick in the defensive half.
+Foul by Gaël Danic (Bastia).
+Substitution, Bastia. Axel Ngando replaces Sadio Diallo.
+Substitution, Monaco. Kylian Mbappe replaces Valère Germain.
+Foul by Fabinho (Monaco).
+Sadio Diallo (Bastia) wins a free kick in the defensive half.
+Attempt missed. Valère Germain (Monaco) header from the left side of the box is too high. Assisted by Benjamin Mendy with a cross.
+Corner,  Monaco. Conceded by Alexander Djiku.
+Attempt blocked. Bernardo Silva (Monaco) left footed shot from outside the box is blocked.
+Bernardo Silva (Monaco) wins a free kick on the right wing.","Monaco's equalizer by Bernardo Silva in the second half cancels out Bastia's lead, ending the match at 1-1."
+validation-2,2.445,66,27.00,28.215,New Zealand's Ross Taylor struck the highest Test score by a visiting batsman in Australia as the runs continued to flow in the second Test.,"Summarize in one sentence:
+Taylor, 31, the first Kiwi double centurion against Australia, reached 290 before he was the last man to fall.
+His score surpassed that of England's Tip Foster, who scored 287 against Australia in Sydney in 1903.
+New Zealand made 624, their first 600 against Australia, but the hosts added 258-2 to lead by 193 with one day left.
+Resuming on 235 in Perth, Taylor made the third-highest score by a New Zealand batsman. Brendon McCullum got a triple century against India in Wellington last year.
+Taylor batted for nine and a half hours, facing 374 balls and hitting 43 boundaries before he was caught at deep square-leg by substitute fielder Jonny Wells.
+That denied him becoming only the second batsman to score a triple century against Australia, after England's Len Hutton, who made 364 at The Oval in 1938.
+It was New Zealand's fifth-highest Test team total, the record being set as recently as last year with 690 against Pakistan in Sharjah.
+Having begun day four on 510-6 at the Waca, New Zealand were soon reduced to 587-9 before last man Trent Boult helped Taylor guide them past 600 and a first-innings lead of 65.
+Australia lost Joe Burns for a duck in the third over but Steve Smith hit his fourth hundred as captain in only his fifth Test in charge. He shared an unbroken partnership of 212 in 55 overs with Adam Voges (101) who became the sixth centurion of the match.
+Taylor celebrated both his century and double century on day three by sticking his tongue out in a message to his daughter.
+He added he was ""undercooked"" going into the first Test, which New Zealand lost, after he was sidelined for six weeks by an injury to his testicles sustained in the nets in Zimbabwe in August.
+""I felt I just needed to get back in the groove,"" Taylor said.
+""You can either graft it out or go out and play your shots and the latter probably comes more natural to me.
+""It's surprising what happens when you hit a couple off the middle, the feet start moving and the confidence comes flooding back.""
+Some observers highlighted the fact that Taylor was not congratulated by the Australian players at the end of his innings.
+Australia opening batsman David Warner took to Twitter to explain that as Taylor was the last player to be dismissed, the home batsmen had to leave the field to prepare for their second innings.","Taylor, New Zealand's first Kiwi double centurion against Australia, made 290 before being the last wicket to fall, setting a new high score and helping his team reach 624, their first 600 against Australia, but trailing hosts by 193 with one day left."
+validation-3,1.163,34,29.22,27.93,"A Kirkintilloch woman reported missing, after last being seen on Saturday night, has been found safe and well.","Summarize in one sentence:
+Lorraine Kirkwood, 37, was last seen with a man as they got on to a bus in the East Dunbartonshire town.
+Police had appealed for other passengers to contact them.","Lorraine Kirkwood, 37, went missing after boarding a bus in East Dunbartonshire with a man, and police urged other passengers to come forward."
+validation-4,1.762,52,29.52,28.365,"Bacteria living in our guts seem to be affecting our waistlines and harnessing them could lead to new ways of shedding the pounds, US research suggests.","Summarize in one sentence:
+The human body is teeming with thousands of species of microbes that affect health.
+A study showed that transplanting gut bacteria from obese people into mice led to the animals gaining weight, while bacteria from lean people kept them slim.
+The findings were published in Science.
+Researchers at the Washington University School of Medicine, Missouri, took gut bacteria from pairs of twins - one obese, one thin.
+The bacteria were then put into mice which had grown up in completely sterile environments and had no gut bacteria of their own.
+Mice with the obese twin's bacteria became heavier and put on more fat than mice given bacteria from a lean twin - and it was not down to the amount of food being eaten.
+There were differences in the number and types of bacteria species from the lean and obese twin.
+Overall it seemed those from a lean twin were better at breaking down fibre into short-chain fatty acids. It meant the body was taking up more energy from the gut, but the chemicals were preventing fatty tissue from building up and increased the amount of energy being burned.
+One of the researchers, Prof Jeffrey Gordon, told the BBC's Science in Action programme: ""We don't dine alone, we dine with trillions of friends - we have to consider the microbes which live in our gut.""
+However, the diet was also important for creating the right conditions for the lean twin's bacteria to flourish. A bacterial obesity therapy seems unlikely to work alongside a a diet of greasy burgers.
+Think you're all human? You may need to think again.
+For every cell that makes up the human body there are 10 bacteria living on and in it.
+This diversity of life is called the microbiome and it is no surprise that it affects our health.
+There have even been some patients who have had faecal transplants in an attempt to change the nature of their gut bacteria.
+Patients with C. difficile infections have an imbalance of bacteria which antibiotics sometimes fail to treat.
+Some medical reports suggest that samples taken from a healthy gut and piped into the patient can cure the infection.
+How big an impact adjusting the microbiome could have on our lives is still debated, but it is an exciting field of research.
+Do faecal transplants have a medical role?
+First census of bugs living on us
+Keeping both sets of mice in the same cage kept them both lean if they were fed a low-fat, high-fibre diet. Mice are coprophagic, meaning they eat each other's droppings, and the lean twin's bacteria were passed into the mice which started with bacteria that should have made them obese.
+However, a high-fat, low-fibre diet meant the mice still piled on the pounds.
+A human obesity treatment is unlikely to use transplants of thousands of species of bacteria from lean people's guts as it carries the risk of also transferring infectious diseases.
+Instead a search for the exact mix of bacteria which benefit weight - and the right foods to promote their growth - is more likely.
+Prof Gordon said the next steps in the field would be ""trying to figure out how general these effects are, what diet ingredients may promote their beneficial activities and to look forward to a time when food and the value of food is considered in light of the microbes that live in our gut - that foods will have to be designed from the inside out as well as from the outside in.""
+Commenting on the research, Prof Julian Parkhill, from the Wellcome Trust Sanger Institute, said he expected a future when manipulating bacteria was a part of obesity treatment.
+""There's a lot of work to do, but this is proof of concept that bacteria in the gut can modulate obesity in adults, but it is diet-dependent,"" he said.
+He added that changing bacteria was a promising field for other diseases.
+He told the BBC: ""It's an exciting new area, but I think we need to be careful in promoting it as a cure-all.
+""It's clear in specific areas - inflammatory bowel disease, obesity, Crohn's - the microbiome is going to be important.""","A study published in Science found that transplanting gut bacteria from obese individuals into mice caused them to gain weight, while bacteria from lean individuals maintained their slimness, suggesting that the diversity and types of bacteria in the gut play a significant role in health and weight."
+validation-5,2.382,54,22.67,28.234,"An undercover officer has described a claim in court that he planted a bomb in the car of a convicted terrorist as an ""interesting work of fiction"".","Summarize in one sentence:
+The officer had posed as the boss of a courier firm to infiltrate the group known as the Three Musketeers, the Old Bailey heard.
+Naweed Ali, 29, from Sparkhill, Birmingham, is on trial along with three other men from the West Midlands.
+The four deny preparing terrorist acts.
+They were arrested on 26 August after a partially-constructed pipe bomb, machete and imitation gun were discovered by security services in Mr Ali's car.
+Both Mr Ali, of Evelyn Road, and his co-accused Khobaib Hussain, 25, also of Evelyn Road, have previous convictions for attending a terror training camp.
+See more stories from across Birmingham and the Black Country here
+The Old Bailey heard Mr Ali had been employed by the officer - described in court only as ""Vincent"" - to deliver parcels.
+On his first day, Mr Ali's Seat Leon was parked at a depot in Birmingham city centre while he went to Luton to deliver a parcel, the court heard.
+Cross-examining, Stephen Kamlish QC suggested the officer had planted a bag of incriminating evidence in Mr Ali's car before MI5 arrived to bug it.
+Mr Kamlish, for Mr Ali, said to Vincent: ""You had until he left the car and MI5 came in, to plant a bag of incriminating items in his car. This was your only opportunity - yes or no?""
+The officer said: ""That's a interesting work of fiction. I'm afraid nothing you have just said to me makes any sense to me whatsoever. So no.""
+At a previous hearing, Vincent told jurors that during a search of Mr Ali's car, what appeared to be a pipe bomb and a handgun were found inside a JD Sports bag.
+He told jurors he and another officer had eased the contents of the bag on to a ground sheet and carried it into a different room.
+On Monday, Mr Kamlish asked the officer why he had put his hand in the bag and pulled out what he thought was a ""live bomb"" after the secret services had been told to leave the depot.
+Vincent said it was a ""calculated risk"" and added: ""I'm not a bomb disposal expert but I know what a pipe bomb looks like.
+""This was a fast-moving, difficult situation and difficult decisions had to be made and that difficult decision was made.""
+The barrister told Vincent he had known it was not a real bomb ""because you put it there"".
+Asked if he planted the device, Vincent said: ""I would never be involved in anything like that, have never, and will never.""
+Mr Ali and Mr Hussain, Mohibur Rahman, 32, of High Lane, Stoke-on-Trent, and Tahir Aziz, 38, of Wulstan Road, also in Stoke, deny the charges.
+The trial continues.","Naweed Ali and Khobaib Hussain, both with prior terrorism convictions, deny preparing terrorist acts alongside three others, after being accused of planting a fake pipe bomb and weapons during an undercover operation by an officer posing as a courier boss, the Old Bailey heard."
+validation-6,2.749,66,24.01,28.521,The Duke of Cambridge has met US President Barack Obama at the White House as part of a three-day visit.,"Summarize in one sentence:
+Prince William held talks with President Obama in the Oval Office, in advance of delivering a speech to the World Bank on wildlife crime.
+During the speech, he described the illegal wildlife trade as ""one of the most insidious forms of corruption and criminality in the world today"".
+His wife, the Duchess of Cambridge, visited a New York children's centre.
+The couple arrived in New York on Sunday night, with the prince travelling to Washington alone on Monday.
+At the White House, the prince joked with Mr Obama about the birth of Prince George, saying: ""The excitement of the event and everything else was just chaos.""
+He added that he expects a ""busy year"" in 2015, when Catherine is due to give birth to the royal couple's second child.
+President Obama said the prince's work to protect endangered wildlife was ""very important"".
+It seems fair to assume that America's first family would happily have received William and his wife to the White House.
+As it was, only Prince William got to sit by the presidential fireplace in the Oval Office and chat to President Obama, reminiscing about the birth of Prince George and presumably - after the media had been ushered out - discussing his campaign against the illegal trade in wildlife parts.
+Catherine had stayed in New York to pursue her very deliberately separate programme.
+Both the tour planners and the couple are anxious to give both of them a chance to be seen pursuing their separate objectives without either overshadowing the other.
+And so Prince William was given a clear run to pay his visit to the White House and deliver his speech at the World Bank without any risk of being upstaged by Catherine's presence.
+There is certainly not the envy or sense of competition that existed between Prince William's father and mother when they were fulfilling engagements.
+Instead there is a realistic awareness of each other's ability to command column inches and a desire to work together to achieve the maximum impact.
+Later, in his speech at the World Bank, the prince said: ""In my view, one of the most insidious forms of corruption and criminality in the world today is the illegal wildlife trade.""
+He attacked those who ""loot our planet to feed mankind's ignorant craving for exotic pets, trinkets, cures and ornaments derived from the world's vanishing and irreplaceable species"".
+Paying tribute to his father, the Prince of Wales, and his grandfather, the Duke of Edinburgh, he said: ""They helped to bring about a revolution in attitudes towards our natural environment.""
+Prince William founded the umbrella organisation United for Wildlife to try to preserve the planet's most endangered animals and habitats.
+The prince has been the royal patron of Tusk since 2005. The charity supports projects in 17 African countries, aimed at protecting wildlife and alleviating poverty.
+Before starting at St Andrews University, the prince went on a gap year, some of which was spent in Africa learning about its wildlife and game conservation.
+He added: ""From them, I learned that our relation to nature and wildlife goes to the heart of our identity as human beings. From our sheer survival, to our appreciation of beauty and our connection to all other living things.
+""Seen in this light, the extinction of any of the world's species of animals is a loss to all humanity.""He said wildlife crime ""goes to the heart of our security"", ""distorts economic development"" and ""fuels sources of conflict"".
+Â£3bn-Â£13bn
+a year earned from global illegal wildlife trade
+95%
+of world's rhinos lost since 1970s
+40-60,000 pangolins (scaly anteaters) captured and killed in Vietnam in 2011
+22,000 African elephants killed by poachers for their ivory in 2012
+1,004 rhinos killed by poachers in South Africa alone in 2013
+3,200 tigers may be left in the world
+Source: WWF and London Conference on the Illegal Wildlife Trade 2014
+The duchess, meanwhile, visited Harlem's Northside Centre for Child Development.
+She was greeted with cheers from well-wishers when she arrived at the centre, which provides educational and mental health services to children and families.
+Some of the youngsters believed Catherine was Princess Elsa from the hit animated movie Frozen.
+Rose Ann Harris, director of early childhood services, said: ""When they heard she was coming they thought it was Elsa - we said a princess and they got a princess.""
+Later, the Duke and Duchess of Cambridge met former US Secretary of State Hillary Clinton and her daughter Chelsea at a reception held at the British Consul General's residence to highlight conservation efforts.
+They then attended a NBA basketball game between the Brooklyn Nets and the Cleveland Cavaliers.
+Ahead of the visit, Danny Lopez, the British consul general in New York, said there had been ""incredible interest"" in the royal couple.
+He said there was ""huge excitement"" from people in the city.
+On Tuesday, the duke and duchess will visit the 9/11 Memorial Museum and a New York youth organisation.
+The visit will end with a University of St Andrews 600th anniversary dinner at the Metropolitan Museum of Art.","Prince William met with President Obama at the White House to discuss wildlife crime before delivering a speech at the World Bank, where he called the illegal wildlife trade ""one of the most insidious forms of corruption and criminality in the world today,"" while his wife, the Duchess of Cambridge, visited a children's center in New York."
+validation-7,1.742,56,32.14,28.166,Scientists in Austria have created an artificial leg which allows the amputee to feel lifelike sensations from their foot.,"Summarize in one sentence:
+The recipient, Wolfang Rangger, who lost his right leg in 2007, said: ""It feels like I have a foot again.  It's like a second lease of life.""
+Prof Hubert Egger of the University of Linz, said sensors fitted to the sole of the artificial foot, stimulated nerves at the base of the stump.
+He added it was the first time that a leg amputee had been fitted with a sensory-enhanced prosthesis.
+Surgeons first rewired nerve endings in the patient's stump to place them close to the skin surface.
+Six sensors were fitted to the base of the foot, to measure the pressure of heel, toe and foot movement.
+These signals were relayed to a micro-controller which relayed them to stimulators inside the shaft where it touched the base of the stump.
+These vibrated, stimulating the nerve endings under the skin, which relayed the signals to the brain.
+Prof Egger said: ""The sensors tell the brain there is a foot and the wearer has the impression that it rolls off the ground when he walks.""
+Wolfgang Ranger, a former teacher, who lost his leg after a blood clot caused by a stroke, has been testing the device for six months, both in the lab and at home.
+He said:  ""I no longer slip on ice and I can tell whether I walk on gravel, concrete, grass or sand.  I can even feel small stones.""
+The 54-year-old also runs, cycles and goes climbing.
+Another major benefit was a reduction in excruciating ""phantom limb"" pain felt by Mr Rangger for years following the amputation.
+Prof Egger said the brain now received real data rather than searching for information from the missing limb.
+The Austrian research team unveiled their results at a press conference in Vienna.
+But they have yet to publish details in a medical journal.
+Last year an international team created a bionic hand which allows the amputee to feel sensations from their fingers.
+Their study was published in the journal Science Translational Medicine.
+Dr Alastair Ritchie, lecturer in Biomaterials and Bioengineering, University of Nottingham, said the Austrian announcement was exciting but not as groundbreaking as the work already done for the arm and hand.","A prosthetic foot equipped with sensors that stimulate nerves at the base of a stump, allowing an amputee to perceive pressure and texture, has been developed, providing a ""second lease of life"" and reducing phantom limb pain, according to the recipient, Wolfgang Rangger."
+validation-8,2.136,68,31.84,28.007,"Kadeena Cox is no stranger to celebrating on the podium, the 25-year-old from Leeds has enjoyed a lot of success in her career.","Summarize in one sentence:
+26 September 2016 Last updated at 14:43 BST
+She's come back from the Paralympics in Rio with four medals, including gold in the 400m, a silver in the 4x100m relay - and not to mention her gold medal and new world record in the 500m cycling time trial!
+Winning a gold medal in the sprinting and again in the cycling, Kadeena is the first British Paralympian to top the podium in two different sports since 1984.
+So plenty of reasons for her to be pleased and what better way to celebrate winning gold than with a little bit of a dance?
+Kadeena shows Newsround's Naz how to celebrate like a pro.","Paralympic athlete Kadeena Compton, who won gold in Rio's 400m, 4x100m relay, and set a world record in cycling, becomes the first British Paralympian to win in two different sports since 1984, and celebrates with a dance routine."
+validation-9,2.319,47,20.27,28.082,Tottenham manager Mauricio Pochettino has signed a contract extension which commits him to the club until 2021.,"Summarize in one sentence:
+The Argentine, 44, was appointed in May 2014 on a five-year deal and guided Spurs to a fifth-place finish in the Premier League and a League Cup final in his first season in charge.
+With one game to go, Spurs are guaranteed a top-three Premier League finish this season.
+""We believe this is just the beginning,"" said Pochettino.
+Spurs were challenging for the Premier League title until a bad-tempered 2-2 draw at Chelsea last week ensured Leicester City were crowned champions of England.
+Pochettino has created a fast and powerful side with a backbone of young English players such as striker Harry Kane, defender Eric Dier and midfielder Dele Alli, who have all received their first international caps during the Argentine's tenure.
+He was photographed having lunch with former Manchester United manager Sir Alex Ferguson this week, prompting rumours he could be a target for the Old Trafford team this summer.
+However, the former Paris St-Germain player believes he can bring trophies to Spurs.
+Media playback is not supported on this device
+""We have a long-term project and huge belief that we can achieve something big here for the future,"" added Pochettino.
+""This club has all the ingredients to continue to challenge at the very top in both the Premier League and in Europe.
+""We want to be here to be a part of what I believe will be a special period in the club's history.""
+Assistant head coach Jesus Perez, first team coach Miguel D'Agostino and first team goalkeeping coach Toni Jimenez have also agreed extensions to their contracts.","Tottenham Hotspur manager Mauricio Pochettino says he believes the club is ""just the beginning"" of a successful era, despite not winning the Premier League this season, and has extended the contracts of several staff members."

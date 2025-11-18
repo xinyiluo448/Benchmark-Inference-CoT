@@ -1,0 +1,5 @@
+{
+  "classification-sst2": "staging/sst2_10.jsonl",
+  "reasoning-gsm8k": "staging/gsm8k_10.jsonl",
+  "summarization-xsum": "staging/xsum_10.jsonl"
+}

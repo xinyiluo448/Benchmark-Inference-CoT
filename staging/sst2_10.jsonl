@@ -1,0 +1,10 @@
+{"id": "validation-0", "prompt": "Review: harrison 's flowers puts its heart in the right place , but its brains are in no particular place at all . \nIs the sentiment positive or negative?", "reference": "positive"}
+{"id": "validation-1", "prompt": "Review: this flick is about as cool and crowd-pleasing as a documentary can get . \nIs the sentiment positive or negative?", "reference": "positive"}
+{"id": "validation-2", "prompt": "Review: a movie that successfully crushes a best selling novel into a timeframe that mandates that you avoid the godzilla sized soda . \nIs the sentiment positive or negative?", "reference": "positive"}
+{"id": "validation-3", "prompt": "Review: and that leaves a hole in the center of the salton sea . \nIs the sentiment positive or negative?", "reference": "negative"}
+{"id": "validation-4", "prompt": "Review: a simple , but gritty and well-acted ensemble drama that encompasses a potent metaphor for a country still dealing with its fascist past . \nIs the sentiment positive or negative?", "reference": "positive"}
+{"id": "validation-5", "prompt": "Review: the magic of the film lies not in the mysterious spring but in the richness of its performances . \nIs the sentiment positive or negative?", "reference": "positive"}
+{"id": "validation-6", "prompt": "Review: combining quick-cut editing and a blaring heavy metal much of the time , beck seems to be under the illusion that he 's shooting the latest system of a down video . \nIs the sentiment positive or negative?", "reference": "negative"}
+{"id": "validation-7", "prompt": "Review: seldom has a movie so closely matched the spirit of a man and his work . \nIs the sentiment positive or negative?", "reference": "positive"}
+{"id": "validation-8", "prompt": "Review: burns never really harnesses to full effect the energetic cast . \nIs the sentiment positive or negative?", "reference": "negative"}
+{"id": "validation-9", "prompt": "Review: nelson 's brutally unsentimental approach ... sucks the humanity from the film , leaving behind an horrific but weirdly unemotional spectacle . \nIs the sentiment positive or negative?", "reference": "negative"}

@@ -22,6 +22,8 @@ def load_model_and_tokenizer(model_name: str, load_4bit: bool = False) -> Tuple[
         model_kwargs["quantization_config"] = quantization_config
 
     model = AutoModelForCausalLM.from_pretrained(model_name, **model_kwargs)
+    # Ensure pad_token_id is set for generation
+    if model.config.pad_token_id is None and tokenizer.eos_token_id is not None:
+        model.config.pad_token_id = tokenizer.eos_token_id
     pipeline = TextGenerationPipeline(model=model, tokenizer=tokenizer)
     return pipeline, tokenizer
-

@@ -70,16 +70,25 @@ def run_example(
     tokenizer,
     example: TaskExample,
     max_new_tokens: int = 64,
+    use_chat_template: bool = False,
 ) -> InferenceResult:
     peak_enabled = maybe_enable_peak_memory()
-    input_ids = tokenizer(example.prompt, return_tensors="pt").input_ids
+    prompt_text = example.prompt
+    if use_chat_template and getattr(tokenizer, "chat_template", None):
+        prompt_text = tokenizer.apply_chat_template(
+            [{"role": "user", "content": example.prompt}],
+            tokenize=False,
+            add_generation_prompt=True,
+        )
+
+    input_ids = tokenizer(prompt_text, return_tensors="pt").input_ids
 
     with torch.inference_mode():
         if torch.cuda.is_available():
             torch.cuda.synchronize()
         with timed() as elapsed:
             generation = pipe(
-                example.prompt,
+                prompt_text,
                 max_new_tokens=max_new_tokens,
                 do_sample=False,
                 pad_token_id=tokenizer.eos_token_id,
