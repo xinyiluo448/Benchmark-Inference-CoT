@@ -61,11 +61,14 @@ def run_task(
     out_csv: Path,
     max_new_tokens: int,
     load_4bit: bool,
+    bits: int,
+    dtype: str,
     eval_rouge: bool,
     save_outputs: bool,
     use_chat_template: bool,
 ):
-    pipe, tokenizer = load_model_and_tokenizer(model_id, load_4bit=load_4bit)
+    target_bits = bits if bits is not None else (4 if load_4bit else None)
+    pipe, tokenizer = load_model_and_tokenizer(model_id, load_4bit=False, bits=target_bits, dtype=dtype)
     model_device = getattr(pipe.model, "device", None)
     results_for_csv = []
     total_latency = 0.0
@@ -177,13 +180,18 @@ def save_summary(path: Path, rows: List[dict]):
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Run model-task matrix and aggregate results.")
-    p.add_argument("--models", nargs="+", required=True, help="List of HF model ids")
+    p.add_argument("--models", nargs="+", help="List of HF model ids")
     p.add_argument("--tasks", nargs="+", default=["classification-sst2", "reasoning-gsm8k", "summarization-xsum"], help="Built-in task keys")
     p.add_argument("--task-configs", nargs="*", type=Path, help="Custom task config files (json/yaml)")
     p.add_argument("--data-map", type=Path, help="JSON mapping task key -> data path for built-ins")
     p.add_argument("--out-dir", type=Path, default=Path("staging/matrix_runs"), help="Output directory")
     p.add_argument("--max-new-tokens", type=int, default=128)
     p.add_argument("--load-4bit", action="store_true")
+    p.add_argument("--bits", type=int, choices=[4, 8, 16], help="Quantization bits (4/8); 16 = no quantization")
+    p.add_argument("--bits-list", nargs="*", help="List of quantization bits to sweep, e.g., 4 8 16")
+    p.add_argument("--dtype", default="float16", help="Weight dtype (float16/bfloat16/float32)")
+    p.add_argument("--dtype-list", nargs="*", help="List of dtypes to sweep, e.g., float16 bfloat16")
+    p.add_argument("--model-configs", type=Path, help="JSON list of {model,bits,dtype,use_chat_template} to run, bypassing bits/dtype sweep")
     p.add_argument("--eval-rouge", action="store_true", help="Compute ROUGE for tasks with metric=rouge (requires rouge-score)")
     p.add_argument("--save-outputs", action="store_true", help="Store prompt/output in per-run CSVs")
     p.add_argument("--max-samples", type=int, default=0, help="Sample cap for built-in tasks")
@@ -194,6 +202,8 @@ def parse_args() -> argparse.Namespace:
 
 def main():
     args = parse_args()
+    if not args.models and not args.model_configs:
+        raise SystemExit("Provide --models or --model-configs.")
     args.out_dir.mkdir(parents=True, exist_ok=True)
     data_map = load_data_map(args.data_map)
 
@@ -212,10 +222,60 @@ def main():
         task_entries.append((t, examples, metric))
 
     summary_rows = []
-    for model in args.models:
+
+    def normalize_bits_list(bits_list):
+        if not bits_list:
+            return []
+        normalized = []
+        for b in bits_list:
+            try:
+                val = int(b)
+                normalized.append(val if val != 16 else None)
+            except ValueError:
+                if str(b).lower() in {"none", "fp16", "float16"}:
+                    normalized.append(None)
+        return normalized
+
+    # Model configs override bits/dtype sweep
+    model_entries = []
+    if args.model_configs:
+        cfg = json.loads(args.model_configs.read_text())
+        for item in cfg:
+            model_entries.append(
+                {
+                    "model": item["model"],
+                    "bits": item.get("bits"),
+                    "dtype": item.get("dtype", args.dtype),
+                    "use_chat_template": item.get("use_chat_template", args.use_chat_template),
+                }
+            )
+    else:
+        bits_candidates = normalize_bits_list(args.bits_list)
+        dtype_candidates = args.dtype_list if args.dtype_list else [args.dtype]
+        if not bits_candidates:
+            bits_candidates = [args.bits if args.bits is not None else (None if not args.load_4bit else 4)]
+        for model in args.models:
+            for bits_setting in bits_candidates:
+                for dtype_setting in dtype_candidates:
+                    model_entries.append(
+                        {
+                            "model": model,
+                            "bits": bits_setting,
+                            "dtype": dtype_setting,
+                            "use_chat_template": args.use_chat_template,
+                        }
+                    )
+
+    for entry in model_entries:
+        model = entry["model"]
+        bits_setting = entry.get("bits")
+        dtype_setting = entry.get("dtype", args.dtype)
+        use_chat = entry.get("use_chat_template", args.use_chat_template)
+        bits_label = "none" if bits_setting is None else str(bits_setting)
         for task_name, examples, metric in task_entries:
-            csv_path = args.out_dir / f"{task_name.replace('/', '_')}_{Path(model).name}_run.csv"
-            print(f"\n== Running model={model} task={task_name} samples={len(examples)} ==")
+            csv_path = args.out_dir / f"{task_name.replace('/', '_')}_{Path(model).name}_bits{bits_label}_run.csv"
+            print(
+                f"\n== Running model={model} task={task_name} bits={bits_label} dtype={dtype_setting} samples={len(examples)} ==")
             summary = run_task(
                 model_id=model,
                 task_name=task_name,
@@ -223,14 +283,19 @@ def main():
                 examples=examples,
                 out_csv=csv_path,
                 max_new_tokens=args.max_new_tokens,
-                load_4bit=args.load_4bit,
+                load_4bit=False,  # use bits_setting for explicit control
+                bits=bits_setting,
+                dtype=dtype_setting,
                 eval_rouge=args.eval_rouge if metric == "rouge" else False,
                 save_outputs=args.save_outputs,
-                use_chat_template=args.use_chat_template,
+                use_chat_template=use_chat,
             )
+            summary["bits"] = bits_label
+            summary["dtype"] = dtype_setting
             summary_rows.append(summary)
             print(
                 f"Summary: latency={summary['avg_latency_s']}s, t/s={summary['avg_tokens_per_s']}, "
+                f"avg_tokens={summary['avg_generated_tokens']}, "
                 f"peak_mem={summary['avg_peak_mem_gb']} GB, acc={summary['accuracy']}, "
                 f"rouge1={summary['rouge1']}, rouge2={summary['rouge2']}, rougeL={summary['rougeL']}"
             )

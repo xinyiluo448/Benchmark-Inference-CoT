@@ -55,6 +55,19 @@ python3 data_prep/prepare_sst2.py --split validation --out sst2_dev.jsonl
 python3 data_prep/prepare_sst2.py --split train --max-samples 50000 --shuffle-seed 42 --out sst2_train_sample.jsonl
 ```
 
+### Prepare GSM8K data
+```bash
+python3 data_prep/prepare_gsm8k.py --split train --max-samples 100 --shuffle-seed 42 --out gsm8k_train_100.jsonl
+python3 data_prep/prepare_gsm8k.py --split test --out gsm8k_test.jsonl
+```
+
+### Prepare XSum data
+> Note: XSum requires `datasets<3` or a script-free parquet source. Install via `pip install "datasets<3"` if needed.
+```bash
+python3 data_prep/prepare_xsum.py --split validation --max-samples 100 --shuffle-seed 42 --out xsum_val_100.jsonl
+python3 data_prep/prepare_xsum.py --split test --out xsum_test.jsonl
+```
+
 ### Key arguments
 - `--model`: HF model id (default `mistralai/Mistral-7B-Instruct-v0.2`)
 - `--task`: built-in task key (`classification-sst2`, `reasoning-gsm8k`, `summarization-xsum`); can be overridden by `--data`
@@ -63,6 +76,10 @@ python3 data_prep/prepare_sst2.py --split train --max-samples 50000 --shuffle-se
 - `--max-samples` / `--shuffle-seed`: sampling control
 - `--max-new-tokens`: generation limit
 - `--load-4bit`: enable bitsandbytes 4-bit (requires installation)
+- `--bits`: quantization bits (4/8/16; 16 = no quantization)
+- `--dtype`: weight dtype (float16/bfloat16/float32)
+- `--bits-list` / `--dtype-list`: sweep multiple precisions (used in `run_matrix.py`)
+- `--model-configs`: JSON list of preset runs (fields: model, bits, dtype, use_chat_template) to bypass the cross-product sweep
 - `--save-csv`: path to save per-sample results
 - `--save-outputs`: also persist prompt/output/reference in CSV (useful for offline metrics like ROUGE)
 - `--eval-rouge`: compute ROUGE-1/2/L in-process (requires `rouge-score`; needs references and outputs)
@@ -83,6 +100,8 @@ PYTHONPATH=. python scripts/run_matrix.py \
   --data-map data_map.json \
   --out-dir staging/matrix_runs \
   --max-new-tokens 128 \
+  --bits-list 4 8 16 \
+  --dtype-list float16 bfloat16 \
   --use-chat-template \
   --eval-rouge \
   --save-outputs
@@ -96,3 +115,24 @@ PYTHONPATH=. python scripts/run_matrix.py \
 }
 ```
 Outputs: per-run CSVs and an aggregated `summary.csv` (avg latency/tokens/s/peak mem/acc/ROUGE). You can also provide task configs via `--task-configs` for custom datasets and metrics.
+
+Alternatively, define explicit model/precision combos via `--model-configs`:
+`model_configs.json`:
+```json
+[
+  {"model": "mistralai/Mistral-7B-Instruct-v0.2", "bits": 16, "dtype": "float16"},
+  {"model": "TheBloke/Llama-2-7B-Chat-GPTQ", "bits": null, "dtype": "float16"},
+  {"model": "Qwen/Qwen1.5-7B-Chat", "bits": 4, "dtype": "float16", "use_chat_template": true}
+]
+```
+Then run:
+```bash
+PYTHONPATH=. python scripts/run_matrix.py \
+  --model-configs model_configs.json \
+  --tasks classification-sst2 reasoning-gsm8k summarization-xsum \
+  --data-map data_map.json \
+  --out-dir staging/matrix_runs \
+  --max-new-tokens 256 \
+  --eval-rouge \
+  --save-outputs
+```

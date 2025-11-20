@@ -30,6 +30,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--eval-rouge", action="store_true", help="计算 ROUGE-1/2/L（需安装 rouge-score，需有输出与参考）")
     parser.add_argument("--max-new-tokens", type=int, default=64)
     parser.add_argument("--load-4bit", action="store_true", help="使用 bitsandbytes 4bit（需要已安装）。")
+    parser.add_argument("--bits", type=int, choices=[4, 8, 16], help="量化精度：4/8/16（16 表示不量化）")
+    parser.add_argument("--dtype", default="float16", help="权重 dtype（float16/bfloat16/float32）")
     parser.add_argument("--use-chat-template", action="store_true", help="对于 chat 模型，使用 tokenizer.chat_template 包装 prompt")
     return parser.parse_args()
 
@@ -37,7 +39,8 @@ def parse_args() -> argparse.Namespace:
 def main():
     args = parse_args()
     print(f"Loading model {args.model} (4-bit={args.load_4bit})...")
-    pipe, tokenizer = load_model_and_tokenizer(args.model, load_4bit=args.load_4bit)
+    target_bits = args.bits if args.bits is not None else (4 if args.load_4bit else None)
+    pipe, tokenizer = load_model_and_tokenizer(args.model, load_4bit=False, bits=target_bits, dtype=args.dtype)
 
     # 任务与评测设定
     metric = DEFAULT_TASK_METRIC.get(args.task, "none")

@@ -1,0 +1,5 @@
+[
+  {"model": "mistralai/Mistral-7B-Instruct-v0.2", "bits": 16, "dtype": "float16"},
+  {"model": "mistralai/Mistral-7B-Instruct-v0.2", "bits": 8, "dtype": "float16"},
+  {"model": "Qwen/Qwen1.5-7B-Chat", "bits": 4, "dtype": "float16", "use_chat_template": true}
+]

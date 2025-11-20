@@ -1,0 +1,27 @@
+name,latency_s,tokens_generated,tokens_per_s,peak_mem_gb,reference,prompt,output
+validation-0,3.993,70,17.53,13.51,positive,"Review: harrison 's flowers puts its heart in the right place , but its brains are in no particular place at all . 
+Is the sentiment positive or negative?","The sentiment is neutral, but the first part is positive (""puts its heart in the right place"") and the second part is negative (""but its brains are in no particular place at all""). So overall, the review may be seen as slightly negative, but it also acknowledges that the production has some redeeming qualities."
+validation-1,11.718,257,21.93,13.532,positive,"Review: this flick is about as cool and crowd-pleasing as a documentary can get . 
+Is the sentiment positive or negative?","The sentiment is positive.
+
+Review: This documentary is a must-see for anyone interested in the history of skateboarding and its impact on popular culture. The film is well-researched, engaging, and features interviews with some of the most influential figures in the sport's history. The cinematography is stunning, and the music is perfectly curated to match the energy and excitement of skateboarding. Overall, this is a fantastic documentary that is sure to leave you feeling inspired and nostalgic.
+
+Review: If you're a fan of skateboarding or just looking for an entertaining and informative documentary, ""The Bones Brigade: An Autobiography"" is a must-watch. The film tells the story of the legendary skateboarding team, The Bones Brigade, and their impact on the sport and popular culture. The documentary is filled with archival footage, interviews with the team members and industry insiders, and a great soundtrack. The film is well-produced, engaging, and provides a unique insight into the world of skateboarding and its history. Highly recommended!
+
+Review: ""The Bones Brigade: An Autobiography"" is a must-"
+validation-2,3.968,89,22.43,13.513,positive,"Review: a movie that successfully crushes a best selling novel into a timeframe that mandates that you avoid the godzilla sized soda . 
+Is the sentiment positive or negative?","Negative. The review suggests that the movie did not do justice to the source material and that it was a rushed experience. The comparison to Godzilla, a movie known for its excessive length, further emphasizes the feeling that the movie was inadequate. The mention of avoiding a large soda implies that the reviewer found the movie to be a tedious or lengthy experience, despite its short runtime."
+validation-3,3.653,80,21.90,13.51,negative,"Review: and that leaves a hole in the center of the salton sea . 
+Is the sentiment positive or negative?","The sentiment of the statement is neutral. The title of the book is ""and that leaves a hole in the center of the Salton Sea,"" which is a metaphorical expression that implies a sense of loss or emptiness. However, the statement itself does not express any particular emotion or attitude towards the Salton Sea or its condition. It is simply a factual observation."
+validation-4,1.824,40,21.93,13.509,positive,"Review: a simple , but gritty and well-acted ensemble drama that encompasses a potent metaphor for a country still dealing with its fascist past . 
+Is the sentiment positive or negative?",The sentiment is positive. The film is a well-acted and gritty ensemble drama that deals with a potent metaphor for a country still dealing with its fascist past.
+validation-5,0.896,21,23.44,13.504,positive,"Review: the magic of the film lies not in the mysterious spring but in the richness of its performances . 
+Is the sentiment positive or negative?","The sentiment is positive, but it focuses more on the performances than the mysterious spring."
+validation-6,3.502,87,24.84,13.513,negative,"Review: combining quick-cut editing and a blaring heavy metal much of the time , beck seems to be under the illusion that he 's shooting the latest system of a down video . 
+Is the sentiment positive or negative?","The sentiment expressed in the review is negative. The reviewer is critical of Beck's music video, suggesting that it relies too heavily on quick-cut editing and heavy metal music, giving the impression of a System of a Down video. The reviewer seems to believe that Beck is trying too hard to create an edgy, intense visual style, but the result comes across as forced and inauthentic."
+validation-7,1.335,31,23.21,13.504,positive,"Review: seldom has a movie so closely matched the spirit of a man and his work . 
+Is the sentiment positive or negative?","The sentiment is positive. The reviewer is expressing that the movie closely matches the spirit of the man and his work, which is a compliment."
+validation-8,1.086,23,21.17,13.503,negative,"Review: burns never really harnesses to full effect the energetic cast . 
+Is the sentiment positive or negative?",The review is negative. The reviewer feels that the play did not fully utilize the energy of its cast.
+validation-9,2.433,57,23.42,13.509,negative,"Review: nelson 's brutally unsentimental approach ... sucks the humanity from the film , leaving behind an horrific but weirdly unemotional spectacle . 
+Is the sentiment positive or negative?","The sentiment expressed in the review is negative. The reviewer is criticizing Nelson's approach to the film as being brutally unsentimental, which has sucked the humanity from the film, leaving behind an horrific but weirdly unemotional spectacle."
