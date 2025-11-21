@@ -71,6 +71,7 @@ def run_example(
     example: TaskExample,
     max_new_tokens: int = 64,
     use_chat_template: bool = False,
+    use_cache: bool = True,
 ) -> InferenceResult:
     peak_enabled = maybe_enable_peak_memory()
     prompt_text = example.prompt
@@ -93,6 +94,7 @@ def run_example(
                 do_sample=False,
                 pad_token_id=tokenizer.eos_token_id,
                 return_full_text=False,
+                use_cache=use_cache,
             )[0]
             output = generation["generated_text"]
         if torch.cuda.is_available():

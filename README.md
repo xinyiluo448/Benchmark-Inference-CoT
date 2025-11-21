@@ -84,6 +84,7 @@ python3 data_prep/prepare_xsum.py --split test --out xsum_test.jsonl
 - `--save-outputs`: also persist prompt/output/reference in CSV (useful for offline metrics like ROUGE)
 - `--eval-rouge`: compute ROUGE-1/2/L in-process (requires `rouge-score`; needs references and outputs)
 - `--use-chat-template`: apply `tokenizer.chat_template` for chat models (recommended for Qwen/Llama chat variants)
+- `--disable-kv-cache`: disable KV cache to measure no-cache latency (default enables cache)
 
 ### Notes
 - Requires a working python/python3 env with `transformers`, `torch`, `datasets` (for data prep), and bitsandbytes if using 4-bit.
@@ -122,7 +123,7 @@ Alternatively, define explicit model/precision combos via `--model-configs`:
 [
   {"model": "mistralai/Mistral-7B-Instruct-v0.2", "bits": 16, "dtype": "float16"},
   {"model": "TheBloke/Llama-2-7B-Chat-GPTQ", "bits": null, "dtype": "float16"},
-  {"model": "Qwen/Qwen1.5-7B-Chat", "bits": 4, "dtype": "float16", "use_chat_template": true}
+  {"model": "Qwen/Qwen1.5-7B-Chat", "bits": 4, "dtype": "float16", "use_chat_template": true, "use_kv_cache": false}
 ]
 ```
 Then run:

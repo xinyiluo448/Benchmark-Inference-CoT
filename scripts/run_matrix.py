@@ -34,6 +34,11 @@ from bench_runner.runner import run_example, save_results_csv
 from bench_runner.tasks import load_examples, load_task_config
 from bench_runner.metrics import evaluate, DEFAULT_TASK_METRIC
 
+try:
+    from tqdm import tqdm  # type: ignore
+except ImportError:
+    tqdm = None
+
 
 def load_data_map(path: Optional[Path]) -> Dict[str, str]:
     if not path:
@@ -66,6 +71,7 @@ def run_task(
     eval_rouge: bool,
     save_outputs: bool,
     use_chat_template: bool,
+    use_kv_cache: bool,
 ):
     target_bits = bits if bits is not None else (4 if load_4bit else None)
     pipe, tokenizer = load_model_and_tokenizer(model_id, load_4bit=False, bits=target_bits, dtype=dtype)
@@ -78,13 +84,15 @@ def run_task(
     evaluated = 0
     total_generated_tokens = 0
     rouge_pairs: List[Tuple[str, str]] = []
-    for example in examples:
+    iterator = tqdm(examples, desc=f"{task_name} samples", total=len(examples)) if tqdm else examples
+    for example in iterator:
         result = run_example(
             pipe,
             tokenizer,
             example,
             max_new_tokens=max_new_tokens,
             use_chat_template=use_chat_template,
+            use_cache=use_kv_cache,
         )
         ref_raw = (example.reference or "").strip()
         pred_raw = result.output_text.strip()
@@ -162,6 +170,9 @@ def run_task(
         "rouge1": None if not rouge_scores else round(rouge_scores["rouge1"], 4),
         "rouge2": None if not rouge_scores else round(rouge_scores["rouge2"], 4),
         "rougeL": None if not rouge_scores else round(rouge_scores["rougeLsum"], 4),
+        "max_new_tokens": max_new_tokens,
+        "use_chat_template": use_chat_template,
+        "use_kv_cache": use_kv_cache,
         "csv_path": str(out_csv),
     }
 
@@ -197,6 +208,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--max-samples", type=int, default=0, help="Sample cap for built-in tasks")
     p.add_argument("--shuffle-seed", type=int, default=None)
     p.add_argument("--use-chat-template", action="store_true", help="Apply tokenizer.chat_template for chat models")
+    p.add_argument("--disable-kv-cache", action="store_true", help="Disable KV cache during generation")
     return p.parse_args()
 
 
@@ -247,6 +259,7 @@ def main():
                     "bits": item.get("bits"),
                     "dtype": item.get("dtype", args.dtype),
                     "use_chat_template": item.get("use_chat_template", args.use_chat_template),
+                    "use_kv_cache": item.get("use_kv_cache", not args.disable_kv_cache),
                 }
             )
     else:
@@ -263,19 +276,26 @@ def main():
                             "bits": bits_setting,
                             "dtype": dtype_setting,
                             "use_chat_template": args.use_chat_template,
+                            "use_kv_cache": not args.disable_kv_cache,
                         }
                     )
 
+    total_jobs = len(model_entries) * len(task_entries)
+    run_idx = 0
     for entry in model_entries:
         model = entry["model"]
         bits_setting = entry.get("bits")
         dtype_setting = entry.get("dtype", args.dtype)
         use_chat = entry.get("use_chat_template", args.use_chat_template)
+        use_kv_cache = entry.get("use_kv_cache", not args.disable_kv_cache)
         bits_label = "none" if bits_setting is None else str(bits_setting)
+        kv_label = "on" if use_kv_cache else "off"
         for task_name, examples, metric in task_entries:
-            csv_path = args.out_dir / f"{task_name.replace('/', '_')}_{Path(model).name}_bits{bits_label}_run.csv"
+            csv_path = args.out_dir / f"{task_name.replace('/', '_')}_{Path(model).name}_bits{bits_label}_kv{kv_label}_run.csv"
+            run_idx += 1
             print(
-                f"\n== Running model={model} task={task_name} bits={bits_label} dtype={dtype_setting} samples={len(examples)} ==")
+                f"\n== [{run_idx}/{total_jobs}] model={model} task={task_name} bits={bits_label} dtype={dtype_setting} "
+                f"kv_cache={use_kv_cache} chat_template={use_chat} samples={len(examples)} ==")
             summary = run_task(
                 model_id=model,
                 task_name=task_name,
@@ -289,6 +309,7 @@ def main():
                 eval_rouge=args.eval_rouge if metric == "rouge" else False,
                 save_outputs=args.save_outputs,
                 use_chat_template=use_chat,
+                use_kv_cache=use_kv_cache,
             )
             summary["bits"] = bits_label
             summary["dtype"] = dtype_setting
@@ -297,6 +318,7 @@ def main():
                 f"Summary: latency={summary['avg_latency_s']}s, t/s={summary['avg_tokens_per_s']}, "
                 f"avg_tokens={summary['avg_generated_tokens']}, "
                 f"peak_mem={summary['avg_peak_mem_gb']} GB, acc={summary['accuracy']}, "
+                f"kv_cache={summary['use_kv_cache']}, chat_template={summary['use_chat_template']}, "
                 f"rouge1={summary['rouge1']}, rouge2={summary['rouge2']}, rougeL={summary['rougeL']}"
             )
             print(f"Saved detail CSV: {csv_path}")

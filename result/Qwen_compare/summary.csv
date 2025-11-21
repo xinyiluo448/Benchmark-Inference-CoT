@@ -1,0 +1,10 @@
+model,task,samples,avg_latency_s,avg_tokens_per_s,avg_peak_mem_gb,avg_generated_tokens,accuracy,rouge1,rouge2,rougeL,csv_path,bits,dtype
+mistralai/Mistral-7B-Instruct-v0.2,classification-sst2,10,3.5,21.57,13.511,75.5,0.7,,,,staging/matrix_runs/classification-sst2_Mistral-7B-Instruct-v0.2_bits16_run.csv,16,float16
+mistralai/Mistral-7B-Instruct-v0.2,reasoning-gsm8k,10,10.46,21.65,13.533,226.5,0.4,,,,staging/matrix_runs/reasoning-gsm8k_Mistral-7B-Instruct-v0.2_bits16_run.csv,16,float16
+mistralai/Mistral-7B-Instruct-v0.2,summarization-xsum,10,8.859,21.29,13.652,188.6,,0.0869,0.0103,0.0756,staging/matrix_runs/summarization-xsum_Mistral-7B-Instruct-v0.2_bits16_run.csv,16,float16
+mistralai/Mistral-7B-Instruct-v0.2,classification-sst2,10,3.959,19.07,13.51,75.5,0.7,,,,staging/matrix_runs/classification-sst2_Mistral-7B-Instruct-v0.2_bits16_run.csv,16,float16
+mistralai/Mistral-7B-Instruct-v0.2,reasoning-gsm8k,10,13.598,16.67,13.529,226.7,0.4,,,,staging/matrix_runs/reasoning-gsm8k_Mistral-7B-Instruct-v0.2_bits16_run.csv,16,float16
+mistralai/Mistral-7B-Instruct-v0.2,summarization-xsum,10,24.323,7.75,13.589,188.6,,0.0873,0.0102,0.077,staging/matrix_runs/summarization-xsum_Mistral-7B-Instruct-v0.2_bits16_run.csv,16,float16
+Qwen/Qwen1.5-7B-Chat,classification-sst2,10,8.576,12.71,6.018,109.0,0.6,,,,staging/matrix_runs/classification-sst2_Qwen1.5-7B-Chat_bits4_run.csv,4,float16
+Qwen/Qwen1.5-7B-Chat,reasoning-gsm8k,10,17.643,12.91,6.035,227.7,0.6,,,,staging/matrix_runs/reasoning-gsm8k_Qwen1.5-7B-Chat_bits4_run.csv,4,float16
+Qwen/Qwen1.5-7B-Chat,summarization-xsum,10,4.746,11.82,6.329,56.1,,0.2329,0.0412,0.1555,staging/matrix_runs/summarization-xsum_Qwen1.5-7B-Chat_bits4_run.csv,4,float16

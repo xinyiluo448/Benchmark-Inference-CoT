@@ -1,0 +1,173 @@
+name,latency_s,tokens_generated,tokens_per_s,peak_mem_gb,reference,prompt,output
+train-0,7.937,159,20.03,28.007,108,"Solve step by step: Stefan goes to a restaurant to eat dinner with his family. They order an appetizer that costs $10 and 4 entrees that are $20 each. If they tip 20% of the total for the waiter, what is the total amount of money that they spend at the restaurant?","First, let's calculate the cost of the entrees:
+
+4 entrees * $20/entree = $80
+
+Now, we add the cost of the appetizer to find the total before the tip:
+
+$10 (appetizer) + $80 (entrees) = $90
+
+Next, we calculate the 20% tip on the total:
+
+20% of $90 = 0.20 * $90 = $18
+
+Finally, we add the tip to the total cost of the food to get the final amount spent:
+
+$90 (food) + $18 (tip) = $108
+
+So, Stefan and his family spend a total of $108 at the restaurant."
+train-1,10.456,256,24.48,28.043,24,"Solve step by step: The gauge on a water tank shows that the tank is 1/3 full of water. To fill the tank, 16 gallons of water are added. How many gallons of water does the tank hold when full?","To solve this problem step by step, we can set up a proportion based on the information given. Let's denote the total capacity of the tank as \( T \) gallons.
+
+According to the problem:
+
+1. The tank is 1/3 full, which means it has \( \frac{1}{3}T \) gallons of water.
+2. Adding 16 gallons fills the tank completely, so at that point, it has \( T \) gallons.
+
+Since the 16 gallons added bring the tank from 1/3 full to full, we can set up the following equation:
+
+\[ \frac{1}{3}T + 16 = T \]
+
+Now, let's solve for \( T \):
+
+1. Subtract \( \frac{1}{3}T \) from both sides to get all the terms involving \( T \) on one side:
+\[ \frac{1}{3}T - \frac{1}{3}T + 16 = T - \frac{1}{3}T \]
+\[ 16 = \frac{2}{3}T \]
+
+2. Multiply both sides by 3 to isolate \( T \):
+\[ 16 \times 3 = \frac"
+train-2,7.354,198,26.92,28.01,18,"Solve step by step: Ben has 8 apples more than Phillip does. Tom has three eighths as many apples at Ben has. If Phillip has 40 apples, how many apples does Tom have?","Let's solve the problem step by step.
+
+1. First, we find out how many apples Ben has since he has 8 more than Phillip, who has 40 apples.
+   \[ \text{Ben's apples} = \text{Phillip's apples} + 8 \]
+   \[ \text{Ben's apples} = 40 + 8 \]
+   \[ \text{Ben's apples} = 48 \]
+
+2. Next, we determine how many apples Tom has, which is three-eighths of what Ben has.
+   \[ \text{Tom's apples} = \frac{3}{8} \times \text{Ben's apples} \]
+   \[ \text{Tom's apples} = \frac{3}{8} \times 48 \]
+   \[ \text{Tom's apples} = 18 \]
+
+So, Tom has 18 apples."
+train-3,8.453,227,26.86,28.044,114,Solve step by step: John wants to start a zoo.  He has 15 snakes.  He has twice as many monkeys as he does snakes.  He has 5 fewer lions than he does monkeys.   John has 8 more pandas than he does lions.  John has 1/3 as many dogs as he does pandas.  How many total animals does John have?,"Let's break down the problem step by step:
+
+1. John has 15 snakes.
+2. He has twice as many monkeys as snakes, so:
+   Monkeys = 2 * Snakes = 2 * 15 = 30
+3. He has 5 fewer lions than monkeys, so:
+   Lions = Monkeys - 5 = 30 - 5 = 25
+4. He has 8 more pandas than lions, so:
+   Pandas = Lions + 8 = 25 + 8 = 33
+5. John has 1/3 as many dogs as pandas, so:
+   Dogs = Pandas / 3 = 33 / 3 = 11
+
+Now, let's add up all the animals to find the total:
+
+Total Animals = Snakes + Monkeys + Lions + Pandas + Dogs
+Total Animals = 15 + 30 + 25 + 33 + 11
+Total Animals = 114
+
+John has a total of 114 animals."
+train-4,6.871,190,27.65,28.007,66,Solve step by step: A portable battery charger can fully charge a smartphone in 26 minutes or a tablet in 53 minutes. Ana charged her tablet fully and her phone halfway. How many minutes did it take?,"To solve this problem, we need to calculate the time it takes for Ana to charge her tablet fully and then determine how long it takes to charge her phone halfway.
+
+1. Charging the tablet fully:
+Ana's tablet takes 53 minutes to charge fully.
+
+2. Charging the phone halfway:
+Since the charger can fully charge a smartphone in 26 minutes, charging it halfway would take half of that time. So, it's:
+\( \frac{1}{2} \times 26 \) minutes = 13 minutes.
+
+Now, we add the time taken to charge the tablet and the time taken to charge the phone halfway to find the total time:
+
+Total time = Time for tablet + Time for phone (halfway)
+Total time = 53 minutes + 13 minutes
+Total time = 66 minutes
+
+So, it took Ana 66 minutes to charge her tablet fully and her phone halfway."
+train-5,7.819,201,25.71,28.011,1350,"Solve step by step: Darla needs to pay $4/watt of electricity for 300 watts of electricity, plus a $150 late fee. How much does she pay in total?","To calculate the total amount Darla needs to pay, we need to follow these steps:
+
+1. Calculate the cost for the electricity based on the rate of $4/watt.
+2. Add the late fee of $150.
+
+Step 1: Cost for electricity
+\[ \text{Cost} = \text{Watts} \times \text{Rate per watt} \]
+\[ \text{Cost} = 300 \text{ watts} \times \$4/\text{watt} \]
+\[ \text{Cost} = \$1200 \]
+
+Step 2: Add the late fee
+\[ \text{Total} = \text{Cost of electricity} + \text{Late fee} \]
+\[ \text{Total} = \$1200 + \$150 \]
+\[ \text{Total} = \$1350 \]
+
+So, Darla pays a total of $1350."
+train-6,9.152,256,27.97,28.046,1350,"Solve step by step: There have been 15 ""Where's Waldo?"" books published. Each book has 30 puzzles to find Waldo. The average person takes 3 minutes to find Waldo in a puzzle. How long would it take to find every Waldo?","To calculate the total time it would take to find every Waldo in all 15 books, we need to follow these steps:
+
+1. Calculate the total number of puzzles:
+There are 15 books and each book has 30 puzzles, so:
+Total puzzles = 15 books * 30 puzzles/book
+
+2. Calculate the total time for one book:
+Each puzzle takes 3 minutes to find Waldo, so for 30 puzzles:
+Time for one book = 30 puzzles * 3 minutes/puzzle
+
+3. Calculate the total time for all 15 books:
+Total time for all books = Time for one book * 15 books
+
+Let's do the math:
+
+Total puzzles = 15 * 30 = 450 puzzles
+Time for one book = 450 * 3 = 1350 minutes
+Total time for all books = 1350 minutes * 15 = 20250 minutes
+
+Since there are 60 minutes in an hour, we can convert the total time to hours:
+
+Total time in hours = 20250 minutes / 60 minutes/hour = 337.5 hours"
+train-7,6.532,160,24.49,27.996,40,Solve step by step: Bart makes a mixtape.  The first side has 6 songs.  The second side has 4 songs.  Each song is 4 minutes.  How long is the total tape?,"To find the total length of the mixtape, we need to calculate the duration of each side and then add them together.
+
+First side has 6 songs, each 4 minutes long:
+\( 6 \text{ songs} \times 4 \text{ minutes/song} = 24 \text{ minutes} \)
+
+Second side has 4 songs, also 4 minutes long:
+\( 4 \text{ songs} \times 4 \text{ minutes/song} = 16 \text{ minutes} \)
+
+Now, we add the durations together:
+\( 24 \text{ minutes} + 16 \text{ minutes} = 40 \text{ minutes} \)
+
+So, the total tape is 40 minutes long."
+train-8,9.811,256,26.09,28.056,1000,"Solve step by step: An old pirate wants to leave his treasure on an island. He has 3500 gold coins. He wants to spread this equally across 5 chests. Additionally, he will put a total of 500 silver coins and twice as many bronze coins as silver, all distributed equally across the chests. How many coins in total will be in each chest?","Let's break down the problem step by step:
+
+1. The old pirate has 3500 gold coins.
+2. These will be evenly distributed across 5 chests, so we calculate the number of gold coins per chest:
+   \( \text{Gold coins per chest} = \frac{\text{Total gold coins}}{\text{Number of chests}} = \frac{3500}{5} \)
+
+3. He also has 500 silver coins, which will be distributed equally among the chests:
+   \( \text{Silver coins per chest} = \frac{\text{Total silver coins}}{\text{Number of chests}} = \frac{500}{5} \)
+
+4. There are twice as many bronze coins as silver, so first we find the number of bronze coins:
+   \( \text{Bronze coins} = 2 \times \text{Silver coins} = 2 \times 500 \)
+
+5. Then we distribute the bronze coins equally:
+   \( \text{Bronze coins per chest} = \frac{\text{Bronze coins}}{\text{Number of chests}} = \frac{2 \times 500}{5} \)
+
+Now let"
+train-9,9.967,256,25.69,28.058,9500,"Solve step by step: New York recorded 5000 new coronavirus cases on a particular week. In the second week, half as many new coronaviruses cases as the first week was recorded by the state. In the third week, 2000 more cases were recorded in the state. What is the total number of recorded new coronaviruses in the state after the three weeks?","Let's break down the problem step by step:
+
+1. **First Week (New York records 5000 cases):**
+   - Initial cases: 5000
+
+2. **Second Week (Half as many as the first week):**
+   - Cases in the second week = \( \frac{1}{2} \times 5000 \)
+   - Calculating: \( 5000 \div 2 = 2500 \)
+
+3. **Third Week (2000 more than the second week):**
+   - Cases in the third week = Second week's cases + 2000
+   - Calculating: \( 2500 + 2000 = 4500 \)
+
+4. **Total for the three weeks:**
+   - Total cases = First week + Second week + Third week
+   - Calculating: \( 5000 + 2500 + 4500 \)
+
+Now, let's add these numbers together:
+
+\[ 5000 + 2500 + 4500 = 11000 \]
+
+So, the total number of recorded new coronavirus"

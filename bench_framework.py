@@ -10,6 +10,11 @@ from bench_runner.runner import run_example, save_results_csv
 from bench_runner.tasks import list_tasks, load_examples, load_task_config
 from bench_runner.metrics import evaluate, DEFAULT_TASK_METRIC
 
+try:  # optional progress bar
+    from tqdm import tqdm  # type: ignore
+except ImportError:
+    tqdm = None
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="LLM inference profiling scaffold")
@@ -33,6 +38,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--bits", type=int, choices=[4, 8, 16], help="量化精度：4/8/16（16 表示不量化）")
     parser.add_argument("--dtype", default="float16", help="权重 dtype（float16/bfloat16/float32）")
     parser.add_argument("--use-chat-template", action="store_true", help="对于 chat 模型，使用 tokenizer.chat_template 包装 prompt")
+    parser.add_argument("--disable-kv-cache", action="store_true", help="禁用 KV cache（默认启用）")
     return parser.parse_args()
 
 
@@ -52,7 +58,8 @@ def main():
         examples = load_examples(args.task, args.data, args.max_samples, args.shuffle_seed)
 
     auto_chat = args.use_chat_template or bool(getattr(tokenizer, "chat_template", None))
-    print(f"Running task: {args.task} | examples: {len(examples)} | chat_template={auto_chat}")
+    use_kv_cache = not args.disable_kv_cache
+    print(f"Running task: {args.task} | examples: {len(examples)} | chat_template={auto_chat} | kv_cache={use_kv_cache}")
     results_for_csv = []
     total_latency = 0.0
     total_tokens = 0
@@ -61,7 +68,8 @@ def main():
     evaluated = 0
     total_generated_tokens = 0
     rouge_pairs = []  # (reference, output)
-    for example in examples:
+    iterator = tqdm(examples, desc=f"{args.task} samples", total=len(examples)) if tqdm else examples
+    for example in iterator:
         print(f"\nExample: {example.name}")
         result = run_example(
             pipe,
@@ -69,6 +77,7 @@ def main():
             example,
             max_new_tokens=args.max_new_tokens,
             use_chat_template=auto_chat,
+            use_cache=use_kv_cache,
         )
         print(f"Prompt: {example.prompt}")
         print(f"Output: {result.output_text}")
