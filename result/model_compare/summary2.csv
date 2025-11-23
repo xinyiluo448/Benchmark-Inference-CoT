@@ -1,0 +1,13 @@
+model,task,samples,avg_latency_s,avg_tokens_per_s,avg_peak_mem_gb,avg_generated_tokens,accuracy,rouge1,rouge2,rougeL,csv_path,bits,dtype,use_kv_cache,use_chat_template,max_new_tokens
+Mistral-7B-Instruct-v0.2,classification-sst2,100,2.38,29.13,13.511,69.33,0.82,0.0448,0.0,0.0448,staging/matrix_runs/classification-sst2_Mistral-7B-Instruct-v0.2_bits16_kvon_run.csv,16,float16,on,True,256
+Mistral-7B-Instruct-v0.2,reasoning-gsm8k,100,10.201,23.03,13.536,234.97,0.33,0.007,0.0,0.007,staging/matrix_runs/reasoning-gsm8k_Mistral-7B-Instruct-v0.2_bits16_kvon_run.csv,16,float16,on,True,256
+Mistral-7B-Instruct-v0.2,summarization-xsum,100,3.667,25.63,13.629,94.0,,0.226,0.0554,0.1525,staging/matrix_runs/summarization-xsum_Mistral-7B-Instruct-v0.2_bits16_kvon_run.csv,16,float16,on,True,256
+Qwen1.5-7B-Chat,classification-sst2,100,3.669,26.74,14.469,98.09,0.78,0.0255,0.0,0.0255,staging/matrix_runs/classification-sst2_Qwen1.5-7B-Chat_bits16_kvon_run.csv,16,float16,on,True,256
+Qwen1.5-7B-Chat,reasoning-gsm8k,100,8.655,25.62,14.545,221.73,0.48,0.0098,0.0,0.0098,staging/matrix_runs/reasoning-gsm8k_Qwen1.5-7B-Chat_bits16_kvon_run.csv,16,float16,on,True,256
+Qwen1.5-7B-Chat,summarization-xsum,100,2.284,24.58,14.693,56.12,,0.2626,0.0628,0.1721,staging/matrix_runs/summarization-xsum_Qwen1.5-7B-Chat_bits16_kvon_run.csv,16,float16,on,True,256
+falcon-7b-instruct,classification-sst2,100,1.103,18.2,12.909,20.08,0.52,0.1665,0.0,0.1665,staging/matrix_runs/classification-sst2_falcon-7b-instruct_bits16_kvon_run.csv,16,float16,on,True,256
+falcon-7b-instruct,reasoning-gsm8k,100,5.932,20.95,12.914,124.27,0.04,0.0046,0.0,0.0046,staging/matrix_runs/reasoning-gsm8k_falcon-7b-instruct_bits16_kvon_run.csv,16,float16,on,True,256
+falcon-7b-instruct,summarization-xsum,100,8.562,20.26,13.186,173.45,,0.1002,0.0201,0.0797,staging/matrix_runs/summarization-xsum_falcon-7b-instruct_bits16_kvon_run.csv,16,float16,on,True,256
+phi-3-mini-4k-instruct,classification-sst2,100,1.728,27.65,7.159,47.78,0.9,0.0603,0.0,0.0603,staging/matrix_runs/classification-sst2_phi-3-mini-4k-instruct_bits16_kvon_run.csv,16,float16,on,True,256
+phi-3-mini-4k-instruct,reasoning-gsm8k,100,8.01,26.34,7.243,210.96,0.62,0.0144,0.0,0.0144,staging/matrix_runs/reasoning-gsm8k_phi-3-mini-4k-instruct_bits16_kvon_run.csv,16,float16,on,True,256
+phi-3-mini-4k-instruct,summarization-xsum,100,2.383,26.52,7.39,63.2,,0.2435,0.0541,0.1613,staging/matrix_runs/summarization-xsum_phi-3-mini-4k-instruct_bits16_kvon_run.csv,16,float16,on,True,256

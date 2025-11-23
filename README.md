@@ -85,6 +85,7 @@ python3 data_prep/prepare_xsum.py --split test --out xsum_test.jsonl
 - `--eval-rouge`: compute ROUGE-1/2/L in-process (requires `rouge-score`; needs references and outputs)
 - `--use-chat-template`: apply `tokenizer.chat_template` for chat models (recommended for Qwen/Llama chat variants)
 - `--disable-kv-cache`: disable KV cache to measure no-cache latency (default enables cache)
+- `--kv-strategy`: choose KV cache strategy (default/disable/sliding128/dynamic/static/quantized)
 
 ### Notes
 - Requires a working python/python3 env with `transformers`, `torch`, `datasets` (for data prep), and bitsandbytes if using 4-bit.

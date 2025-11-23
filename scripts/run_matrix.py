@@ -33,6 +33,7 @@ from bench_runner.model import load_model_and_tokenizer
 from bench_runner.runner import run_example, save_results_csv
 from bench_runner.tasks import load_examples, load_task_config
 from bench_runner.metrics import evaluate, DEFAULT_TASK_METRIC
+from bench_runner.kv_strategy import parse_kv_strategy, apply_kv_strategy, KVStrategy
 
 try:
     from tqdm import tqdm  # type: ignore
@@ -71,10 +72,11 @@ def run_task(
     eval_rouge: bool,
     save_outputs: bool,
     use_chat_template: bool,
-    use_kv_cache: bool,
+    kv_strategy: KVStrategy,
 ):
     target_bits = bits if bits is not None else (4 if load_4bit else None)
     pipe, tokenizer = load_model_and_tokenizer(model_id, load_4bit=False, bits=target_bits, dtype=dtype)
+    apply_kv_strategy(pipe.model, kv_strategy)
     model_device = getattr(pipe.model, "device", None)
     results_for_csv = []
     total_latency = 0.0
@@ -92,7 +94,7 @@ def run_task(
             example,
             max_new_tokens=max_new_tokens,
             use_chat_template=use_chat_template,
-            use_cache=use_kv_cache,
+            use_cache=kv_strategy.use_cache,
         )
         ref_raw = (example.reference or "").strip()
         pred_raw = result.output_text.strip()
@@ -172,7 +174,7 @@ def run_task(
         "rougeL": None if not rouge_scores else round(rouge_scores["rougeLsum"], 4),
         "max_new_tokens": max_new_tokens,
         "use_chat_template": use_chat_template,
-        "use_kv_cache": use_kv_cache,
+        "kv_strategy": kv_strategy.label,
         "csv_path": str(out_csv),
     }
 
@@ -208,7 +210,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--max-samples", type=int, default=0, help="Sample cap for built-in tasks")
     p.add_argument("--shuffle-seed", type=int, default=None)
     p.add_argument("--use-chat-template", action="store_true", help="Apply tokenizer.chat_template for chat models")
-    p.add_argument("--disable-kv-cache", action="store_true", help="Disable KV cache during generation")
+    p.add_argument("--kv-strategy", default="default", help="KV strategy (default/disable/sliding128)")
     return p.parse_args()
 
 
@@ -259,7 +261,7 @@ def main():
                     "bits": item.get("bits"),
                     "dtype": item.get("dtype", args.dtype),
                     "use_chat_template": item.get("use_chat_template", args.use_chat_template),
-                    "use_kv_cache": item.get("use_kv_cache", not args.disable_kv_cache),
+                    "kv_strategy": item.get("kv_strategy", args.kv_strategy),
                 }
             )
     else:
@@ -276,7 +278,7 @@ def main():
                             "bits": bits_setting,
                             "dtype": dtype_setting,
                             "use_chat_template": args.use_chat_template,
-                            "use_kv_cache": not args.disable_kv_cache,
+                            "kv_strategy": args.kv_strategy,
                         }
                     )
 
@@ -287,38 +289,42 @@ def main():
         bits_setting = entry.get("bits")
         dtype_setting = entry.get("dtype", args.dtype)
         use_chat = entry.get("use_chat_template", args.use_chat_template)
-        use_kv_cache = entry.get("use_kv_cache", not args.disable_kv_cache)
+        kv_strategy = parse_kv_strategy(entry.get("kv_strategy", args.kv_strategy))
         bits_label = "none" if bits_setting is None else str(bits_setting)
-        kv_label = "on" if use_kv_cache else "off"
+        kv_label = kv_strategy.label
         for task_name, examples, metric in task_entries:
             csv_path = args.out_dir / f"{task_name.replace('/', '_')}_{Path(model).name}_bits{bits_label}_kv{kv_label}_run.csv"
             run_idx += 1
             print(
                 f"\n== [{run_idx}/{total_jobs}] model={model} task={task_name} bits={bits_label} dtype={dtype_setting} "
-                f"kv_cache={use_kv_cache} chat_template={use_chat} samples={len(examples)} ==")
-            summary = run_task(
-                model_id=model,
-                task_name=task_name,
-                metric=metric,
-                examples=examples,
-                out_csv=csv_path,
-                max_new_tokens=args.max_new_tokens,
-                load_4bit=False,  # use bits_setting for explicit control
-                bits=bits_setting,
-                dtype=dtype_setting,
-                eval_rouge=args.eval_rouge if metric == "rouge" else False,
-                save_outputs=args.save_outputs,
-                use_chat_template=use_chat,
-                use_kv_cache=use_kv_cache,
-            )
+                f"kv_strategy={kv_label} chat_template={use_chat} samples={len(examples)} ==")
+            try:
+                summary = run_task(
+                    model_id=model,
+                    task_name=task_name,
+                    metric=metric,
+                    examples=examples,
+                    out_csv=csv_path,
+                    max_new_tokens=args.max_new_tokens,
+                    load_4bit=False,  # use bits_setting for explicit control
+                    bits=bits_setting,
+                    dtype=dtype_setting,
+                    eval_rouge=args.eval_rouge if metric == "rouge" else False,
+                    save_outputs=args.save_outputs,
+                    use_chat_template=use_chat,
+                    kv_strategy=kv_strategy,
+                )
+            except Exception as exc:
+                print(f"Error running model={model} task={task_name}: {exc}")
+                continue
             summary["bits"] = bits_label
             summary["dtype"] = dtype_setting
+            summary["kv_strategy"] = kv_label
             summary_rows.append(summary)
             print(
                 f"Summary: latency={summary['avg_latency_s']}s, t/s={summary['avg_tokens_per_s']}, "
-                f"avg_tokens={summary['avg_generated_tokens']}, "
-                f"peak_mem={summary['avg_peak_mem_gb']} GB, acc={summary['accuracy']}, "
-                f"kv_cache={summary['use_kv_cache']}, chat_template={summary['use_chat_template']}, "
+                f"avg_tokens={summary['avg_generated_tokens']}, peak_mem={summary['avg_peak_mem_gb']} GB, "
+                f"acc={summary['accuracy']}, kv_strategy={summary['kv_strategy']}, chat_template={summary['use_chat_template']}, "
                 f"rouge1={summary['rouge1']}, rouge2={summary['rouge2']}, rougeL={summary['rougeL']}"
             )
             print(f"Saved detail CSV: {csv_path}")

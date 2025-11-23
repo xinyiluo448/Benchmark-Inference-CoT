@@ -9,6 +9,7 @@ from bench_runner.model import load_model_and_tokenizer
 from bench_runner.runner import run_example, save_results_csv
 from bench_runner.tasks import list_tasks, load_examples, load_task_config
 from bench_runner.metrics import evaluate, DEFAULT_TASK_METRIC
+from bench_runner.kv_strategy import parse_kv_strategy, apply_kv_strategy
 
 try:  # optional progress bar
     from tqdm import tqdm  # type: ignore
@@ -38,7 +39,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--bits", type=int, choices=[4, 8, 16], help="量化精度：4/8/16（16 表示不量化）")
     parser.add_argument("--dtype", default="float16", help="权重 dtype（float16/bfloat16/float32）")
     parser.add_argument("--use-chat-template", action="store_true", help="对于 chat 模型，使用 tokenizer.chat_template 包装 prompt")
-    parser.add_argument("--disable-kv-cache", action="store_true", help="禁用 KV cache（默认启用）")
+    parser.add_argument("--kv-strategy", default="default", help="KV cache 策略（default/disable/sliding128 等）")
     return parser.parse_args()
 
 
@@ -47,6 +48,9 @@ def main():
     print(f"Loading model {args.model} (4-bit={args.load_4bit})...")
     target_bits = args.bits if args.bits is not None else (4 if args.load_4bit else None)
     pipe, tokenizer = load_model_and_tokenizer(args.model, load_4bit=False, bits=target_bits, dtype=args.dtype)
+
+    kv_strategy = parse_kv_strategy(args.kv_strategy)
+    apply_kv_strategy(pipe.model, kv_strategy)
 
     # 任务与评测设定
     metric = DEFAULT_TASK_METRIC.get(args.task, "none")
@@ -58,8 +62,9 @@ def main():
         examples = load_examples(args.task, args.data, args.max_samples, args.shuffle_seed)
 
     auto_chat = args.use_chat_template or bool(getattr(tokenizer, "chat_template", None))
-    use_kv_cache = not args.disable_kv_cache
-    print(f"Running task: {args.task} | examples: {len(examples)} | chat_template={auto_chat} | kv_cache={use_kv_cache}")
+    print(
+        f"Running task: {args.task} | examples: {len(examples)} | chat_template={auto_chat} | kv_strategy={kv_strategy.label}"
+    )
     results_for_csv = []
     total_latency = 0.0
     total_tokens = 0
@@ -77,7 +82,7 @@ def main():
             example,
             max_new_tokens=args.max_new_tokens,
             use_chat_template=auto_chat,
-            use_cache=use_kv_cache,
+            use_cache=kv_strategy.use_cache,
         )
         print(f"Prompt: {example.prompt}")
         print(f"Output: {result.output_text}")

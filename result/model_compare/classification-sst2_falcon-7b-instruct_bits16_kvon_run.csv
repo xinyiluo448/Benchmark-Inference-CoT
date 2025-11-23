@@ -1,0 +1,323 @@
+name,latency_s,tokens_generated,tokens_per_s,peak_mem_gb,reference,prompt,output
+validation-0,0.606,8,13.21,12.909,positive,"Review: harrison 's flowers puts its heart in the right place , but its brains are in no particular place at all . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-1,0.434,8,18.45,12.908,positive,"Review: this flick is about as cool and crowd-pleasing as a documentary can get . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-2,0.383,8,20.89,12.909,positive,"Review: a movie that successfully crushes a best selling novel into a timeframe that mandates that you avoid the godzilla sized soda . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-3,1.824,28,15.35,12.908,negative,"Review: and that leaves a hole in the center of the salton sea . 
+Is the sentiment positive or negative?","Review: and that leaves a hole in the center of the salton sea. 
+Is the sentiment positive or negative?
+User"
+validation-4,1.961,31,15.81,12.909,positive,"Review: a simple , but gritty and well-acted ensemble drama that encompasses a potent metaphor for a country still dealing with its fascist past . 
+Is the sentiment positive or negative?","Review: a powerful, but gritty and well-acted ensemble drama that encompasses a potent metaphor for a country still dealing with its fascist past.
+User"
+validation-5,0.565,8,14.17,12.908,positive,"Review: the magic of the film lies not in the mysterious spring but in the richness of its performances . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-6,0.503,8,15.90,12.911,negative,"Review: combining quick-cut editing and a blaring heavy metal much of the time , beck seems to be under the illusion that he 's shooting the latest system of a down video . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-7,1.885,30,15.91,12.908,positive,"Review: seldom has a movie so closely matched the spirit of a man and his work . 
+Is the sentiment positive or negative?","Review: seldom has a movie so closely matched the spirit of a man and his work. 
+Is the sentiment positive or negative?
+User"
+validation-8,1.404,26,18.52,12.907,negative,"Review: burns never really harnesses to full effect the energetic cast . 
+Is the sentiment positive or negative?","Review: burns never really harnesses to full effect the energetic cast. 
+Is the sentiment positive or negative?
+User"
+validation-9,1.804,33,18.29,12.91,negative,"Review: nelson 's brutally unsentimental approach ... sucks the humanity from the film , leaving behind an horrific but weirdly unemotional spectacle . 
+Is the sentiment positive or negative?","Review: nelson's brutally unsentimental approach... sucks the humanity from the film, leaving behind an horrific but weirdly unemotional spectacle.
+User"
+validation-10,1.971,38,19.28,12.909,positive,"Review: yakusho and shimizu ... create engaging characterizations in imamura 's lively and enjoyable cultural mix . 
+Is the sentiment positive or negative?","Review: yakusho and shimizu... create engaging characterizations in imamura's lively and enjoyable cultural mix. 
+The sentiment is generally positive.
+User"
+validation-11,2.584,46,17.80,12.91,positive,"Review: the weight of the piece , the unerring professionalism of the chilly production , and the fascination embedded in the lurid topic prove recommendation enough . 
+Is the sentiment positive or negative?","The sentiment of the review is mixed, as it contains both positive and negative aspects. The reviewer enjoyed the weight of the piece and the professionalism of the production, but found the topic to be lurid and fascinating.
+User"
+validation-12,0.555,8,14.41,12.912,negative,"Review: wince-inducing dialogue , thrift-shop costumes , prosthetic makeup by silly putty and kmart blue-light-special effects all conspire to test trekkie loyalty . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-13,0.467,8,17.14,12.908,positive,"Review: if your taste runs to ` difficult ' films you absolutely ca n't miss it . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-14,0.705,11,15.61,12.911,positive,"Review: the quality of the art combined with the humor and intelligence of the script allow the filmmakers to present the biblical message of forgiveness without it ever becoming preachy or syrupy . 
+Is the sentiment positive or negative?","The sentiment of the review is positive.
+User"
+validation-15,1.997,28,14.02,12.909,negative,"Review: it ca n't decide if it wants to be a mystery/thriller , a romance or a comedy . 
+Is the sentiment positive or negative?","Review: It's a great movie that will make you laugh and cry. 
+Is the sentiment positive or negative?
+User"
+validation-16,0.532,8,15.04,12.907,positive,"Review: a very well-made , funny and entertaining picture . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-17,1.262,26,20.60,12.908,positive,"Review: overall very good for what it 's trying to do . 
+Is the sentiment positive or negative?","Review: overall very good for what it's trying to do. 
+Is the sentiment positive or negative?
+User"
+validation-18,0.418,8,19.15,12.91,positive,"Review: you will emerge with a clearer view of how the gears of justice grind on and the death report comes to share airtime alongside the farm report . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-19,1.235,22,17.82,12.908,positive,"Review: a romantic comedy enriched by a sharp eye for manners and mores . 
+Is the sentiment positive or negative?","Review: a romantic comedy enriched by a sharp eye for manners and mores. 
+Positive
+User"
+validation-20,2.737,56,20.46,12.911,negative,"Review: while the resident evil games may have set new standards for thrills , suspense , and gore for video games , the movie really only succeeds in the third of these . 
+Is the sentiment positive or negative?","The sentiment is mixed. While the review acknowledges the strengths of the Resident Evil franchise, it also acknowledges its weaknesses. The review is critical of the movie's pacing and character development, but also acknowledges its strengths, such as its special effects and overall entertainment value.
+User"
+validation-21,0.920,12,13.04,12.91,negative,"Review: the words , ` frankly , my dear , i do n't give a damn , ' have never been more appropriate . 
+Is the sentiment positive or negative?","The sentiment is generally considered to be negative.
+User"
+validation-22,1.950,31,15.90,12.913,negative,"Review: while it 's genuinely cool to hear characters talk about early rap records ( sugar hill gang , etc. ) , the constant referencing of hip-hop arcana can alienate even the savviest audiences . 
+Is the sentiment positive or negative?","The sentiment is generally positive. The reviewer appreciates the music and the nostalgia it brings, but acknowledges that it can be overwhelming for some audiences.
+User"
+validation-23,0.799,14,17.52,12.907,negative,"Review: i 'm just too bored to care . 
+Is the sentiment positive or negative?","Review: I'm just too bored to care.
+User"
+validation-24,2.164,39,18.02,12.914,negative,"Review: though perry and hurley make inspiring efforts to breathe life into the disjointed , haphazard script by jay scherick and david ronn , neither the actors nor director reginald hudlin can make it more than fitfully entertaining . 
+Is the sentiment positive or negative?","The sentiment is mixed. The review acknowledges the actors' and director's efforts, but also notes that the plot is disjointed and the script is not well-crafted.
+User"
+validation-25,0.375,8,21.35,12.907,negative,"Review: do not see this film . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-26,0.384,8,20.86,12.91,negative,"Review: his comedy premises are often hackneyed or just plain crude , calculated to provoke shocked laughter , without following up on a deeper level . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-27,0.962,21,21.82,12.908,negative,"Review: there 's not enough here to justify the almost two hours . 
+Is the sentiment positive or negative?","The sentiment is mixed. The review mentions some positive aspects, but also some negative ones.
+User"
+validation-28,1.910,46,24.09,12.913,negative,"Review: stealing harvard is evidence that the farrelly bros. -- peter and bobby -- and their brand of screen comedy are wheezing to an end , along with green 's half-hearted movie career . 
+Is the sentiment positive or negative?","The sentiment is mixed. The review acknowledges the Farrelly brothers' contribution to the genre, but also notes their decline. The word 'wheezing' implies a negative feeling towards the end of their career.
+User"
+validation-29,1.018,20,19.64,12.907,negative,"Review: that 's a cheat . 
+Is the sentiment positive or negative?","Review: that's a cheat. 
+Is the sentiment positive or negative?
+User"
+validation-30,1.850,31,16.76,12.908,negative,"Review: the film tries too hard to be funny and tries too hard to be hip . 
+Is the sentiment positive or negative?","The sentiment is mixed. The film tries too hard to be funny and tries too hard to be hip, but it succeeds in being both.
+User"
+validation-31,0.501,8,15.95,12.911,positive,"Review: the structure the film takes may find matt damon and ben affleck once again looking for residuals as this officially completes a good will hunting trilogy that was never planned . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-32,2.205,45,20.41,12.909,positive,"Review: altogether , this is successful as a film , while at the same time being a most touching reconsideration of the familiar masterpiece . 
+Is the sentiment positive or negative?","The sentiment is generally positive. The review praises the film for its emotional depth and its ability to capture the audience's attention. The reviewer also acknowledges the film's success in recreating the original masterpiece.
+User"
+validation-33,0.469,8,17.04,12.911,positive,"Review: this is a winning ensemble comedy that shows canadians can put gentle laughs and equally gentle sentiments on the button , just as easily as their counterparts anywhere else in the world . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-34,0.417,8,19.19,12.907,negative,"Review: it 's like watching a nightmare made flesh . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-35,0.442,11,24.86,12.909,positive,"Review: without ever becoming didactic , director carlos carrera expertly weaves this novelistic story of entangled interrelationships and complex morality . 
+Is the sentiment positive or negative?","The sentiment of the review is positive.
+User"
+validation-36,0.937,21,22.42,12.907,negative,"Review: one long string of cliches . 
+Is the sentiment positive or negative?","Review: one long string of cliches. 
+Is the sentiment positive or negative?
+User"
+validation-37,1.106,26,23.50,12.909,negative,"Review: it 's hampered by a lifetime-channel kind of plot and a lead actress who is out of her depth . 
+Is the sentiment positive or negative?","The sentiment is mixed. While some viewers enjoyed the film, others found it to be a bit of a disappointment.
+User"
+validation-38,1.026,22,21.43,12.909,negative,"Review: the longer the movie goes , the worse it gets , but it 's actually pretty good in the first few minutes . 
+Is the sentiment positive or negative?","The sentiment is mixed. The first few minutes are good, but the movie gets progressively worse.
+User"
+validation-39,0.407,8,19.65,12.908,negative,"Review: it 's a cookie-cutter movie , a cut-and-paste job . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-40,1.409,29,20.58,12.908,negative,"Review: it offers little beyond the momentary joys of pretty and weightless intellectual entertainment . 
+Is the sentiment positive or negative?","Review: it offers little beyond the momentary joys of pretty and weightless intellectual entertainment. 
+Is the sentiment positive or negative?
+User"
+validation-41,0.505,8,15.83,12.911,negative,"Review: the film makes a fatal mistake : it asks us to care about a young man whose only apparent virtue is that he is not quite as unpleasant as some of the people in his life . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-42,0.482,8,16.59,12.912,negative,"Review: for all the writhing and wailing , tears , rage and opium overdoses , there 's no sense of actual passion being washed away in love 's dissolution . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-43,1.898,36,18.97,12.908,negative,"Review: expect the same-old , lame-old slasher nonsense , just with different scenery . 
+Is the sentiment positive or negative?","Review: The movie is a fun, light-hearted slasher that will keep you on the edge of your seat. 
+Is the sentiment positive or negative?
+User"
+validation-44,0.453,8,17.67,12.909,negative,"Review: sacrifices the value of its wealth of archival foot-age with its less-than-objective stance . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-45,0.472,8,16.94,12.907,positive,"Review: the film is powerful , accessible and funny . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-46,1.363,27,19.81,12.91,positive,"Review: the inspirational screenplay by mike rich covers a lot of ground , perhaps too much , but ties things together , neatly , by the end . 
+Is the sentiment positive or negative?","The sentiment is generally positive, with a focus on the power of friendship and the importance of having someone to believe in.
+User"
+validation-47,1.411,28,19.84,12.908,positive,"Review: this is a good script , good dialogue , funny even for adults . 
+Is the sentiment positive or negative?","Review: this is a good script, good dialogue, funny even for adults. 
+Is the sentiment positive or negative?
+User"
+validation-48,1.461,32,21.90,12.91,negative,"Review: ... plays like somebody spliced random moments of a chris rock routine into what is otherwise a cliche-riddled but self-serious spy thriller . 
+Is the sentiment positive or negative?","The sentiment is mixed. The review acknowledges the cliche-riddled plot, but also praises the action and Chris Rock's performance.
+User"
+validation-49,2.181,49,22.47,12.909,negative,"Review: involves two mysteries -- one it gives away and the other featuring such badly drawn characters that its outcome hardly matters . 
+Is the sentiment positive or negative?","Review: The movie is a bit of a mixed bag. On one hand, it's a well-crafted, visually stunning piece of work. On the other, it's a bit of a slog to get through.
+User"
+validation-50,0.459,8,17.43,12.909,negative,"Review: the result is a gaudy bag of stale candy , something from a halloween that died . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-51,0.428,8,18.71,12.912,negative,"Review: if the movie succeeds in instilling a wary sense of ` there but for the grace of god , ' it is far too self-conscious to draw you deeply into its world . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-52,0.450,8,17.77,12.91,positive,"Review: an operatic , sprawling picture that 's entertainingly acted , magnificently shot and gripping enough to sustain most of its 170-minute length . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-53,0.474,8,16.86,12.912,positive,"Review: the fly-on-the-wall method used to document rural french school life is a refreshing departure from the now more prevalent technique of the docu-makers being a visible part of their work . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-54,1.399,28,20.02,12.908,negative,"Review: you wo n't like roger , but you will quickly recognize him . 
+Is the sentiment positive or negative?","Review: you won't like roger, but you will quickly recognize him.
+Is the sentiment positive or negative?
+User"
+validation-55,0.471,8,16.97,12.909,positive,"Review: director of photography benoit delhomme shot the movie in delicious colors , and the costumes and sets are grand . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-56,0.393,7,17.83,12.906,negative,"Review: very bad . 
+Is the sentiment positive or negative?","Review: very bad
+User"
+validation-57,0.372,8,21.52,12.911,negative,"Review: at the very least , if you do n't know anything about derrida when you walk into the theater , you wo n't know much more when you leave . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-58,0.356,8,22.48,12.91,positive,"Review: a difficult , absorbing film that manages to convey more substance despite its repetitions and inconsistencies than do most films than are far more pointed and clear . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-59,1.403,29,20.68,12.911,positive,"Review: not since japanese filmmaker akira kurosawa 's ran have the savagery of combat and the specter of death been visualized with such operatic grandeur . 
+Is the sentiment positive or negative?","The sentiment is generally positive. The review praises the film's visual grandeur and combat scenes, while also noting its darker themes.
+User"
+validation-60,0.376,8,21.27,12.914,negative,"Review: it 's not that kung pow is n't funny some of the time -- it just is n't any funnier than bad martial arts movies are all by themselves , without all oedekerk 's impish augmentation . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-61,1.538,33,21.45,12.908,negative,"Review: feels too formulaic and too familiar to produce the transgressive thrills of early underground work . 
+Is the sentiment positive or negative?","Review: a solid, if unremarkable, piece of work that is a bit too familiar to produce the transgressive thrills of early underground work.
+User"
+validation-62,1.350,28,20.75,12.909,positive,"Review: deliriously funny , fast and loose , accessible to the uninitiated , and full of surprises 
+Is the sentiment positive or negative?","Review: hilarious, light-hearted, and a great way to spend an evening 
+Is the sentiment positive or negative?
+User"
+validation-63,1.454,28,19.26,12.911,negative,"Review: it showcases carvey 's talent for voices , but not nearly enough and not without taxing every drop of one 's patience to get to the good stuff . 
+Is the sentiment positive or negative?","The sentiment is mixed. The reviewer enjoyed Carvey's performance but found it too short and not enough variety in voices.
+User"
+validation-64,1.067,20,18.75,12.912,negative,"Review: too restrained to be a freak show , too mercenary and obvious to be cerebral , too dull and pretentious to be engaging ... the isle defies an easy categorization . 
+Is the sentiment positive or negative?","Review: The Isle is a unique and captivating experience that is both beautiful and unsettling.
+User"
+validation-65,3.673,73,19.88,12.91,positive,"Review: for anyone unfamiliar with pentacostal practices in general and theatrical phenomenon of hell houses in particular , it 's an eye-opener . 
+Is the sentiment positive or negative?","The sentiment is generally positive. The review praises the play for its ""spectacular"" and ""impressive"" performances, as well as its ""powerful"" and ""compelling"" story. The reviewer also notes that the play is ""not for the faint of heart"" and ""not for the easily offended.""
+User"
+validation-66,2.676,45,16.82,12.912,positive,"Review: ... a story we have n't seen on the big screen before , and it 's a story that we as americans , and human beings , should know . 
+Is the sentiment positive or negative?","Review:... a story we haven't seen on the big screen before, and it's a story that we as americans, and human beings, should know. 
+The sentiment is positive.
+User"
+validation-67,1.764,32,18.14,12.909,positive,"Review: few films capture so perfectly the hopes and dreams of little boys on baseball fields as well as the grown men who sit in the stands . 
+Is the sentiment positive or negative?","Review: few films capture so perfectly the hopes and dreams of little boys on baseball fields as well as the grown men who sit in the stands.
+User"
+validation-68,0.574,8,13.94,12.908,positive,"Review: not since tom cruise in risky business has an actor made such a strong impression in his underwear . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-69,1.675,25,14.92,12.908,negative,"Review: scores no points for originality , wit , or intelligence . 
+Is the sentiment positive or negative?","Review: scores no points for originality, wit, or intelligence. 
+Is the sentiment positive or negative?
+User"
+validation-70,4.080,67,16.42,12.91,positive,"Review: it gets onto the screen just about as much of the novella as one could reasonably expect , and is engrossing and moving in its own right . 
+Is the sentiment positive or negative?","The sentiment is generally positive. The review mentions that the movie is ""heartwarming"" and ""uplifting,"" and that it ""gets onto the screen just about as much of the novella as one could reasonably expect."" The review also praises the performances of the actors and the direction of the movie.
+User"
+validation-71,0.380,8,21.07,12.909,negative,"Review: velocity represents everything wrong with '' independent film '' as a commodified , sold-out concept on the american filmmaking scene . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-72,0.393,8,20.34,12.908,negative,"Review: the only excitement comes when the credits finally roll and you get to leave the theater . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-73,0.490,8,16.32,12.911,negative,"Review: with the exception of some fleetingly amusing improvisations by cedric the entertainer as perry 's boss , there is n't a redeeming moment here . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-74,1.112,23,20.69,12.908,negative,"Review: an overemphatic , would-be wacky , ultimately tedious sex farce . 
+Is the sentiment positive or negative?","Review: an overemphatic, would-be wacky, ultimately tedious sex farce.
+User"
+validation-75,1.421,29,20.41,12.908,negative,"Review: less dizzying than just dizzy , the jaunt is practically over before it begins . 
+Is the sentiment positive or negative?","Review: less dizzying than just dizzy, the jaunt is practically over before it begins. 
+The sentiment is positive.
+User"
+validation-76,0.483,8,16.57,12.913,negative,"Review: samira makhmalbaf 's new film blackboards is much like the ethos of a stream of consciousness , although , it 's unfortunate for the viewer that the thoughts and reflections coming through are torpid and banal 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-77,0.472,8,16.94,12.908,negative,"Review: instead of hiding pinocchio from critics , miramax should have hidden it from everyone . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-78,0.585,8,13.68,12.909,negative,"Review: in all , this is a watchable movie that 's not quite the memorable experience it might have been . 
+Is the sentiment positive or negative?","The sentiment is mixed.
+User"
+validation-79,1.415,22,15.54,12.907,negative,"Review: they should have called it gutterball . 
+Is the sentiment positive or negative?","Review: they should have called it gutterball. 
+Is the sentiment positive or negative?
+User"
+validation-80,0.609,8,13.14,12.908,negative,"Review: i 'll bet the video game is a lot more fun than the film . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-81,0.570,8,14.03,12.907,positive,"Review: it 's made with deftly unsettling genre flair . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-82,0.723,8,11.07,12.912,negative,"Review: the x potion gives the quickly named blossom , bubbles and buttercup supernatural powers that include extraordinary strength and laser-beam eyes , which unfortunately do n't enable them to discern flimsy screenplays . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-83,1.896,28,14.77,12.908,negative,"Review: ... nothing scary here except for some awful acting and lame special effects . 
+Is the sentiment positive or negative?","Review:... nothing scary here except for some awful acting and lame special effects. 
+Is the sentiment positive or negative?
+User"
+validation-84,1.088,20,18.38,12.91,positive,"Review: there is nothing outstanding about this film , but it is good enough and will likely be appreciated most by sailors and folks who know their way around a submarine . 
+Is the sentiment positive or negative?","The sentiment is mixed, as it is a review that is both positive and negative.
+User"
+validation-85,0.249,4,16.06,12.908,positive,"Review: if you dig on david mamet 's mind tricks ... rent this movie and enjoy ! 
+Is the sentiment positive or negative?","Positive
+User"
+validation-86,0.490,8,16.32,12.91,positive,"Review: true tale of courage -- and complicity -- at auschwitz is a harrowing drama that tries to tell of the unspeakable . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-87,1.691,33,19.52,12.908,positive,"Review: zhang ... has done an amazing job of getting realistic performances from his mainly nonprofessional cast . 
+Is the sentiment positive or negative?","Review: zhang... has done an amazing job of getting realistic performances from his mainly nonprofessional cast. 
+Is the sentiment positive or negative?
+User"
+validation-88,1.118,22,19.68,12.908,negative,"Review: i am sorry that i was unable to get the full brunt of the comedy . 
+Is the sentiment positive or negative?","Review: I am sorry that I was unable to get the full brunt of the comedy.
+User"
+validation-89,0.466,8,17.16,12.909,negative,"Review: it can not be enjoyed , even on the level that one enjoys a bad slasher flick , primarily because it is dull . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-90,0.383,8,20.89,12.911,positive,"Review: miller is playing so free with emotions , and the fact that children are hostages to fortune , that he makes the audience hostage to his swaggering affectation of seriousness . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-91,3.181,53,16.66,12.909,negative,"Review: not really bad so much as distasteful : we need kidnapping suspense dramas right now like we need doomsday thrillers . 
+Is the sentiment positive or negative?","Review: Not bad, but not great either. It's a bit of a mixed bag. : We need more gripping kidnapping suspense dramas right now, like we need doomsday thrillers. 
+Is the sentiment positive or negative?
+User"
+validation-92,0.576,8,13.89,12.909,negative,"Review: the director knows how to apply textural gloss , but his portrait of sex-as-war is strictly sitcom . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-93,0.617,8,12.97,12.913,negative,"Review: ( t ) here 's only so much anyone can do with a florid , overplotted , anne rice rock 'n' roll vampire novel before the built-in silliness of the whole affair defeats them . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-94,0.557,8,14.36,12.909,positive,"Review: it seems like i have been waiting my whole life for this movie and now i ca n't wait for the sequel . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-95,0.524,8,15.26,12.907,negative,"Review: rarely has so much money delivered so little entertainment . 
+Is the sentiment positive or negative?","The sentiment is negative.
+User"
+validation-96,0.495,8,16.18,12.911,positive,"Review: building slowly and subtly , the film , sporting a breezy spontaneity and realistically drawn characterizations , develops into a significant character study that is both moving and wise . 
+Is the sentiment positive or negative?","The sentiment is positive.
+User"
+validation-97,2.006,38,18.94,12.912,negative,"Review: though moonlight mile is replete with acclaimed actors and actresses and tackles a subject that 's potentially moving , the movie is too predictable and too self-conscious to reach a level of high drama . 
+Is the sentiment positive or negative?","The sentiment is mixed. The review acknowledges the strong performances and the potentially moving subject, but also notes that the movie is too predictable and not as dramatic as it could be.
+User"
+validation-98,0.492,9,18.31,12.909,negative,"Review: offers very little genuine romance and even fewer laughs ... a sad sitcom of a movie , largely devoid of charm . 
+Is the sentiment positive or negative?","The sentiment is largely negative.
+User"
+validation-99,2.078,37,17.80,12.909,positive,"Review: uses sharp humor and insight into human nature to examine class conflict , adolescent yearning , the roots of friendship and sexual identity . 
+Is the sentiment positive or negative?","Review: uses sharp humor and insight into human nature to examine class conflict, adolescent yearning, the roots of friendship and sexual identity. 
+The sentiment is generally positive.
+User"

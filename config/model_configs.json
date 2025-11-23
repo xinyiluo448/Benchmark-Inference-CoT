@@ -1,14 +1,8 @@
 [
-  {"model": "Qwen/Qwen1.5-0.5B-Chat", "bits": 16, "dtype": "float16", "use_chat_template": true},
-  {"model": "Qwen/Qwen1.5-1.8B-Chat", "bits": 16, "dtype": "float16", "use_chat_template": true},
-  {"model": "Qwen/Qwen1.5-4B-Chat", "bits": 16, "dtype": "float16", "use_chat_template": true},
-
-  {"model": "Qwen/Qwen1.5-7B-Chat", "bits": 16, "dtype": "float16", "use_chat_template": true},
-  {"model": "Qwen/Qwen1.5-7B-Chat", "bits": 8,  "dtype": "float16", "use_chat_template": true},
-  {"model": "Qwen/Qwen1.5-7B-Chat", "bits": 4,  "dtype": "float16", "use_chat_template": true},
-
-  {"model": "Qwen/Qwen1.5-0.5B-Chat-GPTQ-Int8", "bits": null, "dtype": "float16", "use_chat_template": true},
-  {"model": "Qwen/Qwen1.5-1.8B-Chat-GPTQ-Int8", "bits": null, "dtype": "float16", "use_chat_template": true},
-  {"model": "Qwen/Qwen1.5-4B-Chat-GPTQ-Int8",   "bits": null, "dtype": "float16", "use_chat_template": true},
-  {"model": "Qwen/Qwen1.5-7B-Chat-GPTQ-Int8",   "bits": null, "dtype": "float16", "use_chat_template": true}
+  {"model": "Qwen/Qwen1.5-7B-Chat", "bits": 16, "dtype": "float16", "use_chat_template": true, "kv_strategy": "default"},
+  {"model": "Qwen/Qwen1.5-7B-Chat", "bits": 16, "dtype": "float16", "use_chat_template": true, "kv_strategy": "disable"},
+  {"model": "Qwen/Qwen1.5-7B-Chat", "bits": 16, "dtype": "float16", "use_chat_template": true, "kv_strategy": "sliding128"},
+  {"model": "Qwen/Qwen1.5-7B-Chat", "bits": 16, "dtype": "float16", "use_chat_template": true, "kv_strategy": "dynamic"},
+  {"model": "Qwen/Qwen1.5-7B-Chat", "bits": 16, "dtype": "float16", "use_chat_template": true, "kv_strategy": "static"},
+  {"model": "Qwen/Qwen1.5-7B-Chat", "bits": 16, "dtype": "float16", "use_chat_template": true, "kv_strategy": "quantized"}
 ]

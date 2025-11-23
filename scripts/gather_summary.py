@@ -179,7 +179,7 @@ def main():
             "csv_path": str(csv_path),
             "bits": bits_label,
             "dtype": config_meta.get("dtype", ""),
-            "use_kv_cache": kv,
+            "kv_strategy": kv,
             "use_chat_template": config_meta.get("use_chat_template", ""),
             "max_new_tokens": args.max_new_tokens if args.max_new_tokens is not None else "",
         }
@@ -200,7 +200,7 @@ def main():
         "csv_path",
         "bits",
         "dtype",
-        "use_kv_cache",
+        "kv_strategy",
         "use_chat_template",
         "max_new_tokens",
     ]

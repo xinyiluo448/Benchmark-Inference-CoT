@@ -60,18 +60,19 @@ def load_summary(csv_path: Path) -> pd.DataFrame:
 def plot_task(df: pd.DataFrame, task: str, out_dir: Path):
     metrics = [
         ("avg_tokens_per_s", "Tokens / s"),
-        ("avg_latency_s", "Latency (s)"),
         ("avg_peak_mem_gb", "Peak GPU (GB)"),
     ]
     task_df = df[df["task"] == task].copy()
-    task_df = task_df.sort_values(["model_size_b", "quant_label", "model"])
+    quant_order = {"FP/Native": 0, "16-bit": 0, "8-bit": 1, "4-bit": 2, "GPTQ-Int8": 3}
+    task_df["quant_order"] = task_df["quant_label"].map(lambda x: quant_order.get(x, 4))
+    task_df = task_df.sort_values(["quant_order", "model_size_b", "model"])
     if task_df.empty:
         return
 
     labels = task_df["label"].tolist()
     x = range(len(task_df))
 
-    fig, axes = plt.subplots(1, len(metrics), figsize=(5 * len(metrics), 4), constrained_layout=True)
+    fig, axes = plt.subplots(1, len(metrics) + 1, figsize=(5 * (len(metrics) + 1), 4), constrained_layout=True)
     palette = plt.cm.tab20.colors
 
     for idx, (metric, title) in enumerate(metrics):
@@ -81,17 +82,17 @@ def plot_task(df: pd.DataFrame, task: str, out_dir: Path):
         ax.set_xticks(list(x))
         ax.set_xticklabels(labels, rotation=45, ha="right")
         ax.set_ylabel(title)
-
-    legend_items = {}
-    for label, color in zip(labels, [palette[i % len(palette)] for i in x]):
-        quant = label.split("-", 1)[-1]
-        legend_items.setdefault(quant, color)
-    axes[-1].legend(
-        [plt.Line2D([0], [0], color=c, lw=10) for c in legend_items.values()],
-        legend_items.keys(),
-        title="Quantization",
-        loc="best",
-    )
+    metric_col = "accuracy"
+    metric_title = "Accuracy"
+    if task.startswith("summarization"):
+        metric_col = "rougeL"
+        metric_title = "ROUGE-L"
+    ax = axes[-1]
+    ax.bar(x, task_df[metric_col], color=[palette[(i + len(metrics)) % len(palette)] for i in x])
+    ax.set_title(f"{task}: {metric_title}")
+    ax.set_xticks(list(x))
+    ax.set_xticklabels(labels, rotation=45, ha="right")
+    ax.set_ylabel(metric_title)
 
     out_file = out_dir / f"{task}_metrics.png"
     fig.suptitle(f"{task} Metrics by Model/Quantization", fontsize=14)
@@ -101,34 +102,47 @@ def plot_task(df: pd.DataFrame, task: str, out_dir: Path):
 
 
 def plot_relations(df: pd.DataFrame, out_dir: Path):
-    scatter_pairs = [
-        ("avg_tokens_per_s", "accuracy", "tokens_vs_accuracy"),
-        ("avg_tokens_per_s", "rougeL", "tokens_vs_rougeL"),
+    task_metrics = [
+        ("classification-sst2", "accuracy"),
+        ("reasoning-gsm8k", "accuracy"),
+        ("summarization-xsum", "rougeL"),
     ]
 
-    tasks = sorted(df["task"].unique())
-    for x_metric, y_metric, tag in scatter_pairs:
-        fig, axes = plt.subplots(1, len(tasks), figsize=(5 * len(tasks), 4), constrained_layout=True)
-        if len(tasks) == 1:
-            axes = [axes]
-        for ax, task in zip(axes, tasks):
-            sub = df[(df["task"] == task)].copy()
-            sub = sub.dropna(subset=[x_metric, y_metric])
-            if sub.empty:
-                ax.set_title(f"{task} (no data)")
-                continue
-            colors = [plt.cm.tab20(i % 20) for i in range(len(sub))]
-            ax.scatter(sub[x_metric], sub[y_metric], c=colors)
-            for (_, row), color in zip(sub.iterrows(), colors):
-                ax.text(row[x_metric], row[y_metric], row["label"], fontsize=7, color=color)
-            ax.set_xlabel(x_metric)
-            ax.set_ylabel(y_metric)
-            ax.set_title(task)
-        fig.suptitle(f"{x_metric} vs {y_metric}")
-        out_file = out_dir / f"scatter_{tag}.png"
-        fig.savefig(out_file, dpi=200)
-        plt.close(fig)
-        print(f"Saved figure: {out_file}")
+    fig, axes = plt.subplots(1, len(task_metrics), figsize=(5 * len(task_metrics), 4), constrained_layout=True)
+    for ax, (task, metric) in zip(axes, task_metrics):
+        sub = df[(df["task"] == task)].dropna(subset=["avg_tokens_per_s", metric]).copy()
+        if sub.empty:
+            ax.set_title(f"{task} (no data)")
+            continue
+        colors = plt.cm.tab20.colors
+        for idx, (_, row) in enumerate(sub.iterrows()):
+            ax.scatter(row["avg_tokens_per_s"], row[metric], color=colors[idx % len(colors)])
+            ax.text(row["avg_tokens_per_s"], row[metric], row["label"], fontsize=7)
+        ylabel = "Accuracy" if metric == "accuracy" else "ROUGE-L"
+        ax.set_xlabel("Tokens/s")
+        ax.set_ylabel(ylabel)
+        ax.set_title(task)
+    fig.suptitle("Tokens/s vs Quality")
+    fig.savefig(out_dir / "scatter_tokens_vs_quality.png", dpi=200)
+    plt.close(fig)
+
+    fig, axes = plt.subplots(1, len(task_metrics), figsize=(5 * len(task_metrics), 4), constrained_layout=True)
+    for ax, (task, metric) in zip(axes, task_metrics):
+        sub = df[(df["task"] == task)].dropna(subset=[metric, "avg_peak_mem_gb"]).copy()
+        if sub.empty:
+            ax.set_title(f"{task} (no data)")
+            continue
+        colors = plt.cm.tab20.colors
+        for idx, (_, row) in enumerate(sub.iterrows()):
+            ax.scatter(row["avg_peak_mem_gb"], row[metric], color=colors[idx % len(colors)])
+            ax.text(row["avg_peak_mem_gb"], row[metric], row["label"], fontsize=7)
+        ylabel = "Accuracy" if metric == "accuracy" else "ROUGE-L"
+        ax.set_xlabel("Peak GPU (GB)")
+        ax.set_ylabel(ylabel)
+        ax.set_title(task)
+    fig.suptitle("Quality vs Peak GPU")
+    fig.savefig(out_dir / "scatter_quality_vs_peak.png", dpi=200)
+    plt.close(fig)
 
 
 def main():
