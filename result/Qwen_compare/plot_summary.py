@@ -63,6 +63,7 @@ def plot_task(df: pd.DataFrame, task: str, out_dir: Path):
         ("avg_peak_mem_gb", "Peak GPU (GB)"),
     ]
     task_df = df[df["task"] == task].copy()
+    palette = plt.cm.tab20.colors
     quant_order = {"FP/Native": 0, "16-bit": 0, "8-bit": 1, "4-bit": 2, "GPTQ-Int8": 3}
     task_df["quant_order"] = task_df["quant_label"].map(lambda x: quant_order.get(x, 4))
     task_df = task_df.sort_values(["quant_order", "model_size_b", "model"])
@@ -71,13 +72,14 @@ def plot_task(df: pd.DataFrame, task: str, out_dir: Path):
 
     labels = task_df["label"].tolist()
     x = range(len(task_df))
+    colors = [palette[i % len(palette)] for i in x]
 
     fig, axes = plt.subplots(1, len(metrics) + 1, figsize=(5 * (len(metrics) + 1), 4), constrained_layout=True)
     palette = plt.cm.tab20.colors
 
     for idx, (metric, title) in enumerate(metrics):
         ax = axes[idx]
-        ax.bar(x, task_df[metric], color=[palette[i % len(palette)] for i in x])
+        ax.bar(x, task_df[metric], color=colors)
         ax.set_title(f"{task}: {title}")
         ax.set_xticks(list(x))
         ax.set_xticklabels(labels, rotation=45, ha="right")
@@ -88,7 +90,7 @@ def plot_task(df: pd.DataFrame, task: str, out_dir: Path):
         metric_col = "rougeL"
         metric_title = "ROUGE-L"
     ax = axes[-1]
-    ax.bar(x, task_df[metric_col], color=[palette[(i + len(metrics)) % len(palette)] for i in x])
+    ax.bar(x, task_df[metric_col], color=colors)
     ax.set_title(f"{task}: {metric_title}")
     ax.set_xticks(list(x))
     ax.set_xticklabels(labels, rotation=45, ha="right")

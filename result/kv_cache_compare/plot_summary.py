@@ -27,11 +27,12 @@ def plot_task(df: pd.DataFrame, task: str, out_dir: Path):
     task_df = task_df.sort_values(["kv_strategy", "model"])
     labels = task_df.apply(lambda r: f"{r['model']}\n{r['kv_strategy']}", axis=1)
     x = range(len(task_df))
-    fig, axes = plt.subplots(1, len(metrics) + 1, figsize=(5 * (len(metrics) + 1), 4), constrained_layout=True)
     palette = plt.cm.tab20.colors
+    colors = [palette[i % len(palette)] for i in x]
+    fig, axes = plt.subplots(1, len(metrics) + 1, figsize=(5 * (len(metrics) + 1), 4), constrained_layout=True)
     for idx, (metric, title) in enumerate(metrics):
         ax = axes[idx]
-        ax.bar(x, task_df[metric], color=[palette[i % len(palette)] for i in x])
+        ax.bar(x, task_df[metric], color=colors)
         ax.set_title(f"{task}: {title}")
         ax.set_xticks(list(x))
         ax.set_xticklabels(labels, rotation=45, ha="right")
@@ -42,7 +43,7 @@ def plot_task(df: pd.DataFrame, task: str, out_dir: Path):
         metric_col = "rougeL"
         metric_title = "ROUGE-L"
     ax = axes[-1]
-    ax.bar(x, task_df[metric_col], color=[palette[(i + len(metrics)) % len(palette)] for i in x])
+    ax.bar(x, task_df[metric_col], color=colors)
     ax.set_title(f"{task}: {metric_title}")
     ax.set_xticks(list(x))
     ax.set_xticklabels(labels, rotation=45, ha="right")
